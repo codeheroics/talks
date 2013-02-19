@@ -156,9 +156,65 @@
 				</section>
 
 				<section>
+
 					<section>
 						<h1>1. Basics</h1>
 					</section>
+
+					<section>
+						<h1>Syntax</h1>
+						<h2>The beginning of everything</h2>
+
+						<pre><code contenteditable>&lt;?php
+$statement = "All statements end with a semi-colon";
+// Yes, I know you know that.
+?&gt;</code></pre>
+					</section>
+
+					<section>
+						<h3>By the way, how do I open my PHP tags ?</h3>
+						<div>
+							<pre><code>&lt;?php <span class="fragment">// Always works</span> ?&gt; </code></pre>
+							<pre><code>&lt;? <span class="fragment">// Only works if short_tags are enabled</span> ?&gt;</code></pre>
+							<pre><code>&lt;% <span class="fragment">// Only works if asp_tags are enabled</span> %&gt;</code></pre>
+							<pre><code>&lt;script language="text/php"&gt;<span class="fragment">// Always works</span>&lt;/script&gt;</code></pre>
+						</div>
+					</section>
+
+					<section>
+						<h2>The wonderful world of binaries</h2>
+						<pre><code>$a = 3 % 2; // $a = 1</code></pre>
+						<pre class="fragment"><code>$a = 2 &lt;&lt; 2; // $a = 8</code></pre>
+						<pre class="fragment"><code>$a = 4 &gt;&gt; 2; // $a = 0</code></pre>
+						<pre class="fragment"><code>$a = 6 &amp; 2; // $a = 2</code></pre>
+						<pre class="fragment"><code>$a = 3 | 1; // $a = 3</code></pre>
+						<pre class="fragment"><code>$a = 3 ^ 1; // $a = 2</code></pre>
+						<pre class="fragment"><code>$a = ~8; // $a = -9</code></pre>
+						<pre class="fragment"><code>$a = ~0; // $a = -1</code></pre>
+					</section>
+
+					<section>
+						<h2>Amazing assignments</h2>
+						<pre><code>$a = 1; /* $a now equals 1. I hope you are not lost. */</code></pre>
+						<pre class="fragment"><code>$a += 1; /* $a now equals 2 */</code></pre>
+						<pre class="fragment"><code>$a -= 1; /* $a now equals 1 */</code></pre>
+						<pre class="fragment"><code>$a &lt;&lt;= 1; /* $a now equals 2 */</code></pre>
+						<pre class="fragment"><code>$a &gt;&gt;= 1; /* $a now equals 1 */</code></pre>
+						<pre class="fragment"><code>$a .= " result"; /* $a now equals "1 result" */</code></pre>
+					</section>
+
+					<section>
+						<h2>By the way...</h2>
+						<p>Can you tell me what $a is worth at the second and third line of this code ?</p>
+						<pre><code>$a = 1;
+echo $a++; <span class="fragment"> /* 1 */</span>
+echo ++$a; <span class="fragment"> /* 3 */</span></pre></code>
+					</section>
+
+					<section>
+						<h2>One equal, two equals, three equals...</h2>
+					</section>
+
 				</section>
 
 				<section>
