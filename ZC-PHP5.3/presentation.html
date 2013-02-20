@@ -182,15 +182,20 @@ $statement = "All statements end with a semi-colon";
 					</section>
 
 					<section>
-						<h2>The wonderful world of binaries</h2>
-						<pre><code>$a = 3 % 2; // $a = 1</code></pre>
-						<pre class="fragment"><code>$a = 2 &lt;&lt; 2; // $a = 8</code></pre>
-						<pre class="fragment"><code>$a = 4 &gt;&gt; 2; // $a = 0</code></pre>
-						<pre class="fragment"><code>$a = 6 &amp; 2; // $a = 2</code></pre>
-						<pre class="fragment"><code>$a = 3 | 1; // $a = 3</code></pre>
-						<pre class="fragment"><code>$a = 3 ^ 1; // $a = 2</code></pre>
-						<pre class="fragment"><code>$a = ~8; // $a = -9</code></pre>
-						<pre class="fragment"><code>$a = ~0; // $a = -1</code></pre>
+						<h2>Variables</h2>
+						<p>We love our $</p>
+						<pre><code>$oneTree = 1;</code></pre>
+						<pre><code>$1Tree = 1; <span class="fragment"> // Syntax error. Bam.</span></code></pre>
+						<pre><code>$_1Tree = 1;</code></pre>
+						<pre><code>$OneTree = 1;</code></pre>
+						<p class="fragment">Variables names start with $, then a letter or an underscore, then can contain numbers</p>
+
+						<div class="fragment">
+							<h2>Constants</h2>
+							<pre><code>GREATEST_COMPANY = "Davidson Consulting";</code></pre>
+							<p>No $, UPPERCASE (by convention), then same rules</p>
+							<p>"Magic" constants (<code>__FILE__</code> for exemple) are defined by PHP</p>
+						</div>
 					</section>
 
 					<section>
@@ -201,6 +206,22 @@ $statement = "All statements end with a semi-colon";
 						<pre class="fragment"><code>$a &lt;&lt;= 1; /* $a now equals 2 */</code></pre>
 						<pre class="fragment"><code>$a &gt;&gt;= 1; /* $a now equals 1 */</code></pre>
 						<pre class="fragment"><code>$a .= " result"; /* $a now equals "1 result" */</code></pre>
+						<pre class="fragment"><code>$a = 1;
+$b = &a;
+$b++; // $a now equals 2, $b is a reference to $a;</code></pre>
+					</section>
+
+					<section>
+						<h2>The wonderful world of binaries</h2>
+						<pre><code>$a = 3 % 2; // $a = 1</code></pre>
+						<pre class="fragment"><code>$a = 2 &lt;&lt; 2; // $a = 8</code></pre>
+						<pre class="fragment"><code>$a = 4 &gt;&gt; 2; // $a = 0</code></pre>
+						<pre class="fragment"><code>$a = 6 &amp; 2; // $a = 2</code></pre>
+						<pre class="fragment"><code>$a = 3 | 1; // $a = 3</code></pre>
+						<pre class="fragment"><code>$a = 3 ^ 1; // $a = 2</code></pre>
+						<pre class="fragment"><code>$a = ~8; // $a = -9</code></pre>
+						<pre class="fragment"><code>$a = ~0; // $a = -1</code></pre>
+						<p>
 					</section>
 
 					<section>
@@ -213,6 +234,54 @@ echo ++$a; <span class="fragment"> /* 3 */</span></pre></code>
 
 					<section>
 						<h2>One equal, two equals, three equals...</h2>
+						<pre><code>$a = 1;</code></pre>
+						<pre><code>$a == 1; <span class="fragment"> // true</span></code></pre>
+						<pre><code>$a == '1'; <span class="fragment"> // true</span></code></pre>
+						<pre><code>$a === 1; <span class="fragment"> // true</span></code></pre>
+						<pre><code>$a === '1'; <span class="fragment"> // false</span></code></pre>
+						<pre class="fragment"><code>$a == '1a'; <span class="fragment"> // true</span></code></pre>
+						<pre class="fragment"><code>$a === '1a'; <span class="fragment"> // false</span></code></pre>
+					</section>
+
+					<section>
+						<h2>Fun with math</h2>
+						<pre><code>$a = 1 + 1; // 2</code></pre>
+						<pre class="fragment"><code>$a = 1 + "1"; // 2</code></pre>
+						<pre class="fragment"><code>$a = 1 + "un"; // 1</code></pre>
+						<pre class="fragment"><code>$a = 1 + "1 un"; // 2</code></pre>
+						<pre class="fragment"><code>$a = 1 + "un 1"; // 1</code></pre>
+						<pre class="fragment"><code>$a = 1 + 1 . 1 + 1; // 22 (priority to arithmetical operations)</code></pre>
+					</section>
+
+					<section>
+						<h2>Keep the control</h2>
+						<ul>
+							<li>if</li>
+							<li>else</li>
+							<li>elseif / else if</li>
+							<li>ternary operator (<code>$a = condition? true : false;</code>)</li>
+							<li>switch</li>
+							<li>while</li>
+							<li>do/while</li>
+							<li>for</li>
+							<li>foreach</li>
+							<li>continue</li>
+							<li>break</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Language constructs</h2>
+						<ul>
+							<li>die(), exit()</li>
+							<li>echo(), print()</li>
+							<li>return()</li>
+							<li>empty()</li>
+							<li><strike>eval()</strike></li>
+							<li>include, include_once(), require, require_once()</li>
+							<li>isset(), unset()</li>
+							<li>list()</li>
+						</ul>
 					</section>
 
 				</section>
