@@ -130,7 +130,8 @@
 					<section>
 						<h2>Random notes...</h2>
 						<p>Studying can be boring.</p>
-						<p>You'll have to learn a lot of things by heart.</p>
+						<p>You probably already know a lot of things.</p>
+						<p>You'll have to learn a lot of other things. Some by heart.</p>
 						<p>You'll have to deal with <a href="http://www.codinghorror.com/blog/">"coding horrors"</a> you'd think you'd never see in real code</p>
 						<p class="fragment">
 							<strong>At the end of it all, you should be able to understand PHP code better and faster than before</strong>
@@ -156,9 +157,152 @@
 				</section>
 
 				<section>
+
 					<section>
 						<h1>1. Basics</h1>
 					</section>
+
+					<section>
+						<h1>Syntax</h1>
+						<h2>The beginning of everything</h2>
+
+						<pre><code contenteditable>&lt;?php
+$statement = "All statements end with a semi-colon";
+// Yes, I know you know that.
+?&gt;</code></pre>
+					</section>
+
+					<section>
+						<h3>By the way, how do I open my PHP tags ?</h3>
+						<div>
+							<pre><code>&lt;?php <span class="fragment">// Always works</span> ?&gt; </code></pre>
+							<pre><code>&lt;? <span class="fragment">// Only works if short_tags are enabled</span> ?&gt;</code></pre>
+							<pre><code>&lt;% <span class="fragment">// Only works if asp_tags are enabled</span> %&gt;</code></pre>
+							<pre><code>&lt;script language="text/php"&gt;<span class="fragment">// Always works</span>&lt;/script&gt;</code></pre>
+						</div>
+					</section>
+
+					<section>
+						<h2>Variables</h2>
+						<p>We love our $</p>
+						<pre><code>$oneTree = 1;</code></pre>
+						<pre><code>$1Tree = 1; <span class="fragment"> // Syntax error. Bam.</span></code></pre>
+						<pre><code>$_1Tree = 1;</code></pre>
+						<pre><code>$OneTree = 1;</code></pre>
+						<p class="fragment">Variables names start with $, then a letter or an underscore, then can contain numbers</p>
+
+						<div class="fragment">
+							<h2>Constants</h2>
+							<pre><code>GREATEST_COMPANY = "Davidson Consulting";</code></pre>
+							<p>No $, UPPERCASE (by convention), then same rules</p>
+							<p>"Magic" constants (<code>__FILE__</code> for exemple) are defined by PHP</p>
+						</div>
+					</section>
+
+					<section>
+						<h2>Amazing assignments</h2>
+						<pre><code>$a = 1; /* $a now equals 1. I hope you are not lost. */</code></pre>
+						<pre class="fragment"><code>$a += 1; /* $a now equals 2 */</code></pre>
+						<pre class="fragment"><code>$a -= 1; /* $a now equals 1 */</code></pre>
+						<pre class="fragment"><code>$a &lt;&lt;= 1; /* $a now equals 2 */</code></pre>
+						<pre class="fragment"><code>$a &gt;&gt;= 1; /* $a now equals 1 */</code></pre>
+						<pre class="fragment"><code>$a .= " result"; /* $a now equals "1 result" */</code></pre>
+						<pre class="fragment"><code>$a = 1;
+$b = &a;
+$b++; // $a now equals 2, $b is a reference to $a;</code></pre>
+					</section>
+
+					<section>
+						<h2>The wonderful world of binaries</h2>
+						<pre><code>$a = 3 % 2; // $a = 1</code></pre>
+						<pre class="fragment"><code>$a = 2 &lt;&lt; 2; // $a = 8</code></pre>
+						<pre class="fragment"><code>$a = 4 &gt;&gt; 2; // $a = 0</code></pre>
+						<pre class="fragment"><code>$a = 6 &amp; 2; // $a = 2</code></pre>
+						<pre class="fragment"><code>$a = 3 | 1; // $a = 3</code></pre>
+						<pre class="fragment"><code>$a = 3 ^ 1; // $a = 2</code></pre>
+						<pre class="fragment"><code>$a = ~8; // $a = -9</code></pre>
+						<pre class="fragment"><code>$a = ~0; // $a = -1</code></pre>
+						<p>
+					</section>
+
+					<section>
+						<h2>By the way...</h2>
+						<p>Can you tell me what $a is worth at the second and third line of this code ?</p>
+						<pre><code>$a = 1;
+echo $a++; <span class="fragment"> /* 1 */</span>
+echo ++$a; <span class="fragment"> /* 3 */</span></pre></code>
+					</section>
+
+					<section>
+						<h2>One equal, two equals, three equals...</h2>
+						<pre><code>$a = 1;</code></pre>
+						<pre><code>$a == 1; <span class="fragment"> // true</span></code></pre>
+						<pre><code>$a == '1'; <span class="fragment"> // true</span></code></pre>
+						<pre><code>$a === 1; <span class="fragment"> // true</span></code></pre>
+						<pre><code>$a === '1'; <span class="fragment"> // false</span></code></pre>
+						<pre class="fragment"><code>$a == '1a'; <span class="fragment"> // true</span></code></pre>
+						<pre class="fragment"><code>$a === '1a'; <span class="fragment"> // false</span></code></pre>
+					</section>
+
+					<section>
+						<h2>Fun with math</h2>
+						<pre><code>$a = 1 + 1; // 2</code></pre>
+						<pre class="fragment"><code>$a = 1 + "1"; // 2</code></pre>
+						<pre class="fragment"><code>$a = 1 + "un"; // 1</code></pre>
+						<pre class="fragment"><code>$a = 1 + "1 un"; // 2</code></pre>
+						<pre class="fragment"><code>$a = 1 + "un 1"; // 1</code></pre>
+						<pre class="fragment"><code>$a = 1 + 1 . 1 + 1; // 22 (priority to arithmetical operations)</code></pre>
+					</section>
+
+					<section>
+						<h2>Keep the control</h2>
+						<ul>
+							<li><code>if</code></li>
+							<li><code>else</code></li>
+							<li><code>elseif / else if</code></li>
+							<li><code>ternary operator (<code>$a = condition? true : false;</code>)</code></li>
+							<li><code>switch</code></li>
+							<li><code>while</code></li>
+							<li><code>do/while</code></li>
+							<li><code>for</code></li>
+							<li><code>foreach</code></li>
+							<li><code>continue</code></li>
+							<li><code>break</code></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Language constructs</h2>
+						<ul>
+							<li><code>die(), exit()</code></li>
+							<li><code>echo(), print()</code></li>
+							<li><code>return()</code></li>
+							<li><code>empty()</code></li>
+							<li><code><strike>eval()</strike></code></li>
+							<li><code>include, include_once(), require, require_once()</code></li>
+							<li><code>isset(), unset()</code></li>
+							<li><code>list()</code></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Galaxies of Namespaces</h2>
+						<p>In the broadest definition namespaces are a way of encapsulating items</p>
+						<p>Keyword <code>namespace</code></p>
+						<p>Element in the global space (default) : Prepend "\"</p>
+						<p></p>
+					</section>
+
+					<section>
+						<h2>More and more "basic" stuff...</h2>
+						<p>Know about <code>php.ini</code></p>
+						<p>Know about PHP extensions (simpleXML...)</p>
+					</section>
+
+					<section>
+						<h2>Questions time !</h2>
+					</section>
+
 				</section>
 
 				<section>
