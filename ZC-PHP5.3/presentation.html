@@ -479,6 +479,65 @@ Array
 					<section>
 						<h1>3. Strings</h1>
 					</section>
+
+					<section>
+						<h2>Fun with strings</h2>
+						<p>
+							<small>Trivia : While preparing this, I learned that a string in PHP can be as long as 2GB</small>
+						</p>
+						<h3>Creating a string</h3>
+						<p>Simple quotes or double quotes, double quotes interpretes more stuff (like variables)</p>
+						<p>HEREDOC</p>
+						<pre><code>$str = &lt;&lt;&lt;DELIMITER
+HEREDOC is great if you want
+	the text stored in the variable
+		to be exactly as in the code
+	(plus, $variables are interpreted)
+DELIMITER;</code></pre>
+						<p>NOWDOC</p>
+						<pre><code>&lt;&lt;&lt;'DELIMITER'
+Pretty much the same
+	except that $variables
+		will not be interpreted
+'DELIMITER';</code></pre>
+						<p>(Don't forget, the end delimiter must <strong>NOT</strong> be indented)</p>
+					</section>
+
+					<section>
+						<h2>Manipulating strings all the way</h2>
+						<ul>
+							<li><code>trim()</code></li>
+							<li class="fragment"><code>str_replace() / str_ireplace()</code></li>
+							<li class="fragment"><code>substr()</code></li>
+							<li class="fragment"><code>strpos()</code></li>
+							<li class="fragment"><code>strlen() / str_word_count()</code></li>
+							<li class="fragment"><code>htmlspecialchars() / htmlentities()</code></li>
+							<li class="fragment"><code>strcmp() / strcasecmp()</code></li>
+							<li class="fragment"><code>strstr() / stristr()</code></li>
+							<li class="fragment"><code>strtok</code></li>
+							<li class="fragment"><code>similar_text() / levenshtein()</code></li>
+							<li class="fragment"><code>soundex() / metaphone()</code></li>
+							<li class="fragment"><code>explode() / implode()</code></li>
+							<li class="fragment"><code>printf() / sprintf() / vprintf() / vsprintf() / fprintf()</code></li>
+						</ul>
+						<p><small>You're going to curse PHP for its lack of consistency in functions names</small></p>
+					</section>
+
+					<section>
+						<h2>Trapped with regular expressions</h2>
+						<aside class="notes">http://xkcd.com/208/</aside>
+						<p>Covered in the exam : PCRE (Perl Compatible Regular Expression)</p>
+						<p>You need to be able to at least read basic regular expressions</p>
+						<p>Know the difference between <code>preg_match()</code> (stops after first match) and <code>preg_match_all()</code> (global match)</p>
+					</section>
+
+					<section>
+						<h2>Encoding</h2>
+						<p>PHP does not natively support multibytes strings</p>
+						<p>Know about the mb_* string functions to work with multibytes strings</p>
+						<pre><code>echo strlen('文字列を楽しんで'); // 24</code></pre>
+						<pre><code>echo mb_strlen('文字列を楽しんで', 'UTF-8'); // 8</code></pre>
+					</section>
 				</section>
 
 				<section>
