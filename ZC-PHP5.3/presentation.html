@@ -479,12 +479,169 @@ Array
 					<section>
 						<h1>3. Strings</h1>
 					</section>
+
+					<section>
+						<h2>Fun with strings</h2>
+						<p>
+							<small>Trivia : While preparing this, I learned that a string in PHP can be as long as 2GB</small>
+						</p>
+						<h3>Creating a string</h3>
+						<p>Simple quotes or double quotes, double quotes interpretes more stuff (like variables)</p>
+						<p>HEREDOC</p>
+						<pre><code>$str = &lt;&lt;&lt;DELIMITER
+HEREDOC is great if you want
+	the text stored in the variable
+		to be exactly as in the code
+	(plus, $variables are interpreted)
+DELIMITER;</code></pre>
+						<p>NOWDOC</p>
+						<pre><code>&lt;&lt;&lt;'DELIMITER'
+Pretty much the same
+	except that $variables
+		will not be interpreted
+'DELIMITER';</code></pre>
+						<p>(Don't forget, the end delimiter must <strong>NOT</strong> be indented)</p>
+					</section>
+
+					<section>
+						<h2>Manipulating strings all the way</h2>
+						<ul>
+							<li><code>trim()</code></li>
+							<li class="fragment"><code>str_replace() / str_ireplace()</code></li>
+							<li class="fragment"><code>substr()</code></li>
+							<li class="fragment"><code>strpos()</code></li>
+							<li class="fragment"><code>strlen() / str_word_count()</code></li>
+							<li class="fragment"><code>htmlspecialchars() / htmlentities()</code></li>
+							<li class="fragment"><code>strcmp() / strcasecmp()</code></li>
+							<li class="fragment"><code>strstr() / stristr()</code></li>
+							<li class="fragment"><code>strtok</code></li>
+							<li class="fragment"><code>similar_text() / levenshtein()</code></li>
+							<li class="fragment"><code>soundex() / metaphone()</code></li>
+							<li class="fragment"><code>explode() / implode()</code></li>
+							<li class="fragment"><code>printf() / sprintf() / vprintf() / vsprintf() / fprintf()</code></li>
+						</ul>
+						<p><small>You're going to curse PHP for its lack of consistency in functions names</small></p>
+					</section>
+
+					<section>
+						<h2>Trapped with regular expressions</h2>
+						<aside class="notes">http://xkcd.com/208/</aside>
+						<p>Covered in the exam : PCRE (Perl Compatible Regular Expression)</p>
+						<p>You need to be able to at least read basic regular expressions</p>
+						<p>Know the difference between <code>preg_match()</code> (stops after first match) and <code>preg_match_all()</code> (global match)</p>
+					</section>
+
+					<section>
+						<h2>Encoding</h2>
+						<p>PHP does not natively support multibytes strings</p>
+						<p>Know about the mb_* string functions to work with multibytes strings</p>
+						<pre><code>echo strlen('文字列を楽しんで'); // 24</code></pre>
+						<pre><code>echo mb_strlen('文字列を楽しんで', 'UTF-8'); // 8</code></pre>
+					</section>
 				</section>
 
 				<section>
 					<section>
 						<h1>4. Arrays</h1>
 					</section>
+
+					<section>
+						<h2>Creating arrays</h2>
+							<pre><code>$a = array('a', 'b', 'c');</code></pre>
+							<pre class="fragment"><code>$a = ['a', 'b', 'c']; <span class="fragment">/* PHP 5.4 ! Not OK ! */</span></code></pre>
+							<pre class="fragment"><code>$a = array('a' => 1, 'b' => 2, 'c' => 3);</code></pre>
+							<h3 class="fragment">... can be tricky</h3>
+							<pre class="fragment"><code>$a = array(0 => 1, 2 => 3, 4, 3 => 4);
+print_r($a);
+<span class="fragment">/* Array
+(
+    [0] => 1
+    [2] => 3
+    [3] => 4
+) */</span></code></pre>
+					</section>
+
+					<section>
+						<h2>Manipulating strings all the way</h2>
+						<ul>
+							<li><code>array_push() / array_unshift()</code></li>
+							<li><code>array_pop() / array_shift()</code></li>
+							<li><code>array_merge()</code></li>
+							<li><code>array_slice()</code></li>
+							<li><code>array_splice()</code></li>
+							<li><code>array_keys() / array_values()</code></li>
+							<li><code>array_key_exists() / in_array()</code></li>
+							<li><code>range()</code></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>A bit of order</h2>
+						<p>Learn about <strong><a href="http://www.php.net/manual/en/function.sort.php"><code>sort</code></a></strong>!</p>
+						<pre><code>bool sort ( array &$array [, int $sort_flags = SORT_REGULAR ] )</code></pre>
+						<p>You need to memorize the flags:</p>
+						<ul>
+							<li>SORT_REGULAR</li>
+							<li>SORT_NUMERIC</li>
+							<li>SORT_STRING</li>
+							<li>SORT_LOCALE_STRING</li>
+							<li>SORT_NATURAL</li>
+							<li>SORT_FLAG_CASE</li>
+						</ul>
+
+						<aside class="notes">
+							<ul>
+								<li>SORT_REGULAR - compare items normally (don't change types)</li>
+								<li>SORT_NUMERIC - compare items numerically</li>
+								<li>SORT_STRING - compare items as strings</li>
+								<li>SORT_LOCALE_STRING - compare items as strings, based on the current locale. It uses the locale, which can be changed using setlocale()</li>
+								<li>SORT_NATURAL - compare items as strings using "natural ordering" like natsort()</li>
+								<li>SORT_FLAG_CASE - can be combined (bitwise OR) with SORT_STRING or SORT_NATURAL to sort strings case-insensitively</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<h3>If you don't forget sort...</h3>
+						<p>You won't have any problem with its big family:</p>
+						<ul>
+							<li><code>rsort()</code></li>
+							<li><code>ksort() / krsort()</code></li>
+							<li><code>asort() / arsort()</code></li>
+						</ul>
+						<p>Nor about their customizable cousins:</p>
+						<ul>
+							<li><code>usort(), uasort(), uksort()</code></li>
+						</ul>
+						<p>However, beware their "natural" companions:</p>
+						<ul>
+							<li><code>natsort() / natcasesort()</code></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Comparing</h2>
+						<p>Learn about <strong><code>array_diff</code></strong>:</p>
+						<pre><code>array array_diff ( array $array1 , array $array2 [, array $... ] )
+/* Returns an array containing all the entries from array1 that are not present in any of the other arrays. */</code></pre>
+						<p>Then you'll know how to work with its family:</p>
+						<ul>
+							<li><code>array_diff_assoc</code></li>
+							<li><code>array_diff_key</code></li>
+							<li><code>array_diff_uassoc</code></li>
+							<li><code>array_diff_ukey</code></li>
+						</ul>
+						<p>But also with their sworn enemies, the family of <strong><code>array_intersect</code></strong></p>
+						<pre><code>array array_intersect ( array $array1 , array $array2 [, array $ ... ] )
+/* Returns the values of array1 whose values exist in all of the arguments. */</code></pre>
+						<ul>
+							<li><code>array_intersect_assoc</code></li>
+							<li><code>array_intersect_key</code></li>
+							<li><code>array_intersect_uassoc</code></li>
+							<li><code>array_intersect_ukey</code></li>
+						</ul>
+
+					</section>
+
 				</section>
 
 				<section>
@@ -502,6 +659,10 @@ Array
 				<section>
 					<section>
 						<h1>7. Object-Oriented Programming</h1>
+					</section>
+
+					<section>
+						<p>You can access an object as an array by having it extend the ArrayObject class</p>
 					</section>
 				</section>
 
