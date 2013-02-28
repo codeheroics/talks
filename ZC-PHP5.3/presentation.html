@@ -309,6 +309,170 @@ echo ++$a; <span class="fragment"> /* 3 */</span></pre></code>
 					<section>
 						<h1>2. Data Formats and Types</h1>
 					</section>
+
+					<section>
+						<h1>XML</h1>
+						<h3>eXtensible Markup Language, by the way</h3>
+						<p>You need to know how to manipulate it with PHP</p>
+					</section>
+
+					<section>
+						<p>PHP has an extension to allow the parsing of XML documents : libxml</p>
+						<p>2 main extensions to operate on XML documents :</p>
+						<ul>
+							<li>SimpleXML</li>
+							<li>DOM</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>SimpleXML</h2>
+						<p>Let's quote the PHP manual :</p>
+						<blockquote cite="http://www.php.net/manual/en/intro.simplexml.php">
+							The SimpleXML extension provides a very simple and easily usable toolset to convert XML to an object that can be processed with normal property selectors and array iterators.
+						</blockquote>
+					</section>
+
+					<section>
+						<h3>Creating a SimpleXML object</h3>
+						<pre><code>$xml = simplexml_load_string($xmlString);</code></pre>
+						<pre><code>$xml = simplexml_load_file($xmlFilePath);</code></pre>
+						<pre><code>$xml = new SimpleXMLElement($xmlStringOrPath);</code></pre>
+					</section>
+
+					<section>
+						<h3>Accessing to a SimpleXML object</h3>
+						<pre><code>$quizz = new SimpleXMLElement(
+	'&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+	&lt;quizz&gt;
+		&lt;questions&gt;
+			&lt;question type="general" &gt;What is PHP\'s logo?&lt;/question&gt;
+			&lt;question type="general" &gt;What does PHP mean?&lt;/question&gt;
+		&lt;/questions&gt;
+	&lt;/quizz&gt;'
+);
+echo $quizz->questions->question[1]; <span class="fragment">// What does PHP mean now?</span>
+echo $quizz->questions->question[1]['type']; <span class="fragment">// general</span></code></pre>
+
+					<p class="fragment">
+						The SimpleXMLElement class has useful helpers methods to get information about the document
+					</p>
+					</section>
+
+					<section>
+						<h2>DOM</h2>
+						<h3>Document Object Model</h3>
+						<h4>Same helpful guy we're using to build HTML pages !</h4>
+						<blockquote cite="http://www.php.net/manual/en/intro.dom.php">
+							The DOM extension allows you to operate on XML documents through the DOM API with PHP 5
+						</blockquote>
+					</section>
+
+					<section>
+						<h3>Creating a document</h3>
+						<pre><code>$doc = new DOMDocument();
+$doc->loadXML('<root><node/></root>');</code></pre>
+					</section>
+
+					<section>
+						<h3>Accessing to a document's nodes</h3>
+						<pre><code>$quizz = new DOMDocument();
+$quizz->loadXML(
+	'&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+	&lt;quizz&gt;
+		&lt;questions&gt;
+			&lt;question type="general" &gt;What is PHP\'s logo?&lt;/question&gt;
+			&lt;question type="general" &gt;What does PHP mean?&lt;/question&gt;
+		&lt;/questions&gt;
+	&lt;/quizz&gt;'
+);
+echo $quizz->getElementsByTagName('question')->item(1)->textContent; <span class="fragment">// What does PHP mean now?</span>
+echo $quizz->getElementsByTagName('question')->item(1)->getAttribute('type'); <span class="fragment">// general</span></code></pre>
+					</section>
+
+					<section>
+						<h2>And now, together !</h2>
+						<pre><code>simplexml_import_dom()</code></pre>
+						<pre><code>dom_import_simplexml()</code></pre>
+						<p>I bet you can guess what those functions do :)</p>
+					</section>
+
+					<section>
+						<h2>That's nice and all...</h2>
+						<h4>But outside of the need to learn this for the exam, which one should I use?</h4>
+						<p>
+							Well, <a href="http://stackoverflow.com/questions/4803063/what-the-difference-between-phps-dom-and-simplexml-extensions">someone asked this on Stack Overflow.</a>
+						</p>
+					</section>
+
+					<section>
+						<h3>SimpleXML</h3>
+						<ul>
+							<li>is for simple XML and/or simple UseCases</li>
+							<li>limited API to work with nodes (e.g. cannot program to an interface that much)</li>
+							<li>all nodes are of the same kind (element node is the same as attribute node)</li>
+							<li>nodes are magically accessible, e.g. <code>$root-&gt;foo-&gt;bar['attribute']</code></li>
+						</ul>
+
+						<h3>DOM</h3>
+						<ul>
+							<li>is for any XML UseCase you might have</li>
+							<li><a href="http://www.w3.org/DOM/">is an implementation of the W3C DOM API</a> (found implemented in many languages)</li>
+							<li>differentiates between various Node Types (more control)</li>
+							<li>much more verbose due to explicit API (can code to an interface)</li>
+							<li>can parse broken HTML</li>
+							<li>allows you to use PHP functions in <strong>XPath queries</strong></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>XPath queries?</h2>
+						<p><strong>XPath</strong> is a query language used to point to different parts of an XML document</p>
+						<p>With SimpleXML : <code>$xml->xpath('/questions/question')</code></p>
+						<p>With DOM and the class <a href="http://www.php.net/manual/fr/class.domxpath.php">DOMXPath</a></p>
+						<p>
+							As one or two questions in the exam may require understanding XPath queries, it's recommended that you get familiar with it
+						</p>
+					</section>
+					<section>
+						<h2>JSON : JavaScript Object Notation</h2>
+						<p>JSON has rapidly gained popularity over the last few years</p>
+						<p>Less verbose than XML, equally useful to share data</p>
+						<p>The extension is loaded in PHP by default</p>
+					</section>
+
+					<section>
+						<h2>Keeping it simple</h2>
+						<pre><code>echo json_encode(array('a' => 'b', 'c' => array('d, e'), 1));
+/* {"a":"b","c":["d, e"],"0":1} */
+print_r(json_decode('{"a":"b","c":["d, e"],"0":1}', true));
+/*
+Array
+(
+	[a] => b
+	[c] => Array
+		(
+			[0] => d, e
+		)
+	[0] => 1
+)
+*/</code></pre>
+						<p>You can parse then manipulate JSON as easily as you can manipulate any array.</p>
+					</section>
+
+					<section>
+						<h2>Client/Server communication</h2>
+						<h3>SOAP</h3>
+						<p><strong>Simple Object Access Protocol</strong></p>
+						<p>Protocol to implement webservices, relies on XML</p>
+						<p>PHP has an extension which can be used to write SOAP servers and clients</p>
+
+						<h3>REST</h3>
+						<p>Set of architectural principles</p>
+						<p>Use of HTTP verbs (GET, POST, PUT, DELETE)</p>
+						<p>Needs to answer the right things</p>
+					</section>
+
 				</section>
 
 				<section>
@@ -372,6 +536,11 @@ echo ++$a; <span class="fragment"> /* 3 */</span></pre></code>
 						<li>No mock tests :(</li>
 						<li>... But old mock tests for the PHP5 (not 5.3!) certification can be found online</li>
 					</ul>
+
+					<aside class="notes">
+						<h1>Sources</h1>
+						http://stackoverflow.com/questions/4803063/what-the-difference-between-phps-dom-and-simplexml-extensions
+					</aside>
 				</section>
 
 				<section>
