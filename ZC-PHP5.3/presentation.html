@@ -544,6 +544,104 @@ Pretty much the same
 					<section>
 						<h1>4. Arrays</h1>
 					</section>
+
+					<section>
+						<h2>Creating arrays</h2>
+							<pre><code>$a = array('a', 'b', 'c');</code></pre>
+							<pre class="fragment"><code>$a = ['a', 'b', 'c']; <span class="fragment">/* PHP 5.4 ! Not OK ! */</span></code></pre>
+							<pre class="fragment"><code>$a = array('a' => 1, 'b' => 2, 'c' => 3);</code></pre>
+							<h3 class="fragment">... can be tricky</h3>
+							<pre class="fragment"><code>$a = array(0 => 1, 2 => 3, 4, 3 => 4);
+print_r($a);
+<span class="fragment">/* Array
+(
+    [0] => 1
+    [2] => 3
+    [3] => 4
+) */</span></code></pre>
+					</section>
+
+					<section>
+						<h2>Manipulating strings all the way</h2>
+						<ul>
+							<li><code>array_push() / array_unshift()</code></li>
+							<li><code>array_pop() / array_shift()</code></li>
+							<li><code>array_merge()</code></li>
+							<li><code>array_slice()</code></li>
+							<li><code>array_splice()</code></li>
+							<li><code>array_keys() / array_values()</code></li>
+							<li><code>array_key_exists() / in_array()</code></li>
+							<li><code>range()</code></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>A bit of order</h2>
+						<p>Learn about <strong><a href="http://www.php.net/manual/en/function.sort.php"><code>sort</code></a></strong>!</p>
+						<pre><code>bool sort ( array &$array [, int $sort_flags = SORT_REGULAR ] )</code></pre>
+						<p>You need to memorize the flags:</p>
+						<ul>
+							<li>SORT_REGULAR</li>
+							<li>SORT_NUMERIC</li>
+							<li>SORT_STRING</li>
+							<li>SORT_LOCALE_STRING</li>
+							<li>SORT_NATURAL</li>
+							<li>SORT_FLAG_CASE</li>
+						</ul>
+
+						<aside class="notes">
+							<ul>
+								<li>SORT_REGULAR - compare items normally (don't change types)</li>
+								<li>SORT_NUMERIC - compare items numerically</li>
+								<li>SORT_STRING - compare items as strings</li>
+								<li>SORT_LOCALE_STRING - compare items as strings, based on the current locale. It uses the locale, which can be changed using setlocale()</li>
+								<li>SORT_NATURAL - compare items as strings using "natural ordering" like natsort()</li>
+								<li>SORT_FLAG_CASE - can be combined (bitwise OR) with SORT_STRING or SORT_NATURAL to sort strings case-insensitively</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<h3>If you don't forget sort...</h3>
+						<p>You won't have any problem with its big family:</p>
+						<ul>
+							<li><code>rsort()</code></li>
+							<li><code>ksort() / krsort()</code></li>
+							<li><code>asort() / arsort()</code></li>
+						</ul>
+						<p>Nor about their customizable cousins:</p>
+						<ul>
+							<li><code>usort(), uasort(), uksort()</code></li>
+						</ul>
+						<p>However, beware their "natural" companions:</p>
+						<ul>
+							<li><code>natsort() / natcasesort()</code></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Comparing</h2>
+						<p>Learn about <strong><code>array_diff</code></strong>:</p>
+						<pre><code>array array_diff ( array $array1 , array $array2 [, array $... ] )
+/* Returns an array containing all the entries from array1 that are not present in any of the other arrays. */</code></pre>
+						<p>Then you'll know how to work with its family:</p>
+						<ul>
+							<li><code>array_diff_assoc</code></li>
+							<li><code>array_diff_key</code></li>
+							<li><code>array_diff_uassoc</code></li>
+							<li><code>array_diff_ukey</code></li>
+						</ul>
+						<p>But also with their sworn enemies, the family of <strong><code>array_intersect</code></strong></p>
+						<pre><code>array array_intersect ( array $array1 , array $array2 [, array $ ... ] )
+/* Returns the values of array1 whose values exist in all of the arguments. */</code></pre>
+						<ul>
+							<li><code>array_intersect_assoc</code></li>
+							<li><code>array_intersect_key</code></li>
+							<li><code>array_intersect_uassoc</code></li>
+							<li><code>array_intersect_ukey</code></li>
+						</ul>
+
+					</section>
+
 				</section>
 
 				<section>
@@ -561,6 +659,10 @@ Pretty much the same
 				<section>
 					<section>
 						<h1>7. Object-Oriented Programming</h1>
+					</section>
+
+					<section>
+						<p>You can access an object as an array by having it extend the ArrayObject class</p>
 					</section>
 				</section>
 
