@@ -421,12 +421,56 @@ echo $quizz->getElementsByTagName('question')->item(1)->getAttribute('type'); <s
 							<li>differentiates between various Node Types (more control)</li>
 							<li>much more verbose due to explicit API (can code to an interface)</li>
 							<li>can parse broken HTML</li>
-							<li>allows you to use PHP functions in XPath queries</li>
+							<li>allows you to use PHP functions in <strong>XPath queries</strong></li>
 						</ul>
 					</section>
 
 					<section>
-						<h2>XPath queries ?</h2>
+						<h2>XPath queries?</h2>
+						<p><strong>XPath</strong> is a query language used to point to different parts of an XML document</p>
+						<p>With SimpleXML : <code>$xml->xpath('/questions/question')</code></p>
+						<p>With DOM and the class <a href="http://www.php.net/manual/fr/class.domxpath.php">DOMXPath</a></p>
+						<p>
+							As one or two questions in the exam may require understanding XPath queries, it's recommended that you get familiar with it
+						</p>
+					</section>
+					<section>
+						<h2>JSON : JavaScript Object Notation</h2>
+						<p>JSON has rapidly gained popularity over the last few years</p>
+						<p>Less verbose than XML, equally useful to share data</p>
+						<p>The extension is loaded in PHP by default</p>
+					</section>
+
+					<section>
+						<h2>Keeping it simple</h2>
+						<pre><code>echo json_encode(array('a' => 'b', 'c' => array('d, e'), 1));
+/* {"a":"b","c":["d, e"],"0":1} */
+print_r(json_decode('{"a":"b","c":["d, e"],"0":1}', true));
+/*
+Array
+(
+	[a] => b
+	[c] => Array
+		(
+			[0] => d, e
+		)
+	[0] => 1
+)
+*/</code></pre>
+						<p>You can parse then manipulate JSON as easily as you can manipulate any array.</p>
+					</section>
+
+					<section>
+						<h2>Client/Server communication</h2>
+						<h3>SOAP</h3>
+						<p><strong>Simple Object Access Protocol</strong></p>
+						<p>Protocol to implement webservices, relies on XML</p>
+						<p>PHP has an extension which can be used to write SOAP servers and clients</p>
+
+						<h3>REST</h3>
+						<p>Set of architectural principles</p>
+						<p>Use of HTTP verbs (GET, POST, PUT, DELETE)</p>
+						<p>Needs to answer the right things</p>
 					</section>
 
 				</section>
