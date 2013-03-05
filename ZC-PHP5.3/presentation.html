@@ -648,11 +648,115 @@ print_r($a);
 					<section>
 						<h1>5. Input / Output</h1>
 					</section>
+
+					<section>
+						<h2>Functions to deal with files</h2>
+						<h3>Two main families</h3>
+						<ul>
+							<li>
+								<code>f*()</code> functions, which work with a file <strong>resource</strong> (<code>fopen()</code>, <code>fclose()</code>)
+							</li>
+							<li>
+								<code>file*()</code> functions, which work with a filename <strong>resource</strong> (<code>file_get_contents()</code>, <code>file_put_contents()</code>)
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Dealing with resources</h2>
+						<pre><code>resource fopen ( string $filename , string $mode [, bool $use_include_path = false [, resource $context ]] )</code></pre>
+						<p>
+							2nd parameter : <a href="http://www.php.net/manual/en/function.fopen.php">mode</a>. Type of access required for the string.<br />
+							Possible modes : <code>r</code>, <code>r+</code>, <code>w</code>, <code>w+</code>, <code>a</code>, <code>a+</code>, <code>x</code>, <code>x+</code>, <code>c</code>, <code>c+</code>, <code>b</code>
+						</p>
+						<p>Read through a resource with <code>fread</code>(), write to a resource with <code>fwrite</code> (<code>=== fputs</code>)</p>
+						<p>Don't forget to close your files after usage, using <code>fclose()</code></p>
+					</section>
+
+					<section>
+						<h2>file* functions</h2>
+						<ul>
+							<li><code>file_get_contents</code> is pretty straightforward</li>
+							<li><code>file_put_contents()</code> has a third optional parameter which allows you to modifiy a bit its behavior (append / overwrite)</li>
+							<li><a href="http://www.php.net/manual/en/function.file.php"><code>file_exists()</code></a></li>
+							<li class="fragment">The ill-named <a href="http://www.php.net/manual/en/function.file-exists.php"><code>file()</code></a></li>
+						</ul>
+						<p class="fragment"><strong>None</strong> of the other <code>file*</code> functions have underscores in their names!</p>
+						<ul>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Operating on files</h2>
+						<p><small>Get ready for the surgery...</small></p>
+						<ul class="chunklist chunklist_reference">
+							<li>
+								<a href="function.basename.php"><code>basename</code></a>, <a href="function.dirname.php"><code>dirname</code></a>
+							</li>
+							<li>
+								<a href="function.chmod.php"><code>chmod</code></a>, <a href="function.chown.php"><code>chown</code></a>
+							</li>
+							<li>
+								<a href="function.copy.php"><code>copy</code></a>, <a href="function.unlink.php"><code>unlink</code></a>, <a href="function.rename.php"><code>rename</code></a>
+							</li>
+							<li>
+								<a href="function.mkdir.php"><code>mkdir</code></a>, <a href="function.rmdir.php"><code>rmdir</code></a>
+							</li>
+							<li>
+								<a href="function.touch.php"><code>touch</code></a>
+							</li>
+							<li>
+								<a href="function.readdir.php"><code>readdir</code></a>
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Other useful I/O functions</h2>
+						<ul>
+							<li>
+								<a href="function.fgets.php"><code>fgets</code></a>, <a href="function.fgetcsv.php"><code>fgetcsv</code></a>, <a href="function.fgetss.php"><code>fgetss</code></a>
+							</li>
+							<li>
+								<a href="function.feof.php"><code>feof</code></a> — Tests for end-of-file on a file pointer
+							</li>
+							<li>
+								<a href="function.fpassthru.php"><code>fpassthru</code></a> — Output all remaining data on a file pointer
+							</li>
+							<li>
+								<a href="function.fputcsv.php"><code>fputcsv</code></a> — Format line as CSV and write to file pointer
+							</li>
+							<li>
+								<a href="function.move-uploaded-file.php"><code>move_uploaded_file</code></a> — Moves an uploaded file to a new location
+							</li>
+							<li>
+								<a href="function.readfile.php"><code>readfile</code></a> - Reads a file and writes it to the output buffer.
+							</li>
+							<li>
+								<a href="function.readdir.php"><code>readdir</code></a> - Read entry from directory handle
+							</li>
+							<li>
+								<a href="function.tempnam.php"><code>tempnam</code></a> — Create file with unique file name
+							</li>
+							<li>
+								<a href="function.tmpfile.php"><code>tmpfile</code></a> — Creates a temporary file
+							</li>
+						</ul>
+						<hr>
+						<p><a href="http://www.php.net/manual/en/ref.filesystem.php">Full reference on the PHP manual</a></p>
+					</section>
+
+					<section>
+						<h2>Streams</h2>
+						<p><small>Row, row, gently down the stream...</small></p>
+					</section>
+
 				</section>
 
 				<section>
 					<section>
 						<h1>6. Functions</h1>
+						<h4>Because, you know, we weren't using functions at all before this section</h4>
 					</section>
 				</section>
 
