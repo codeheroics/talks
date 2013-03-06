@@ -768,6 +768,42 @@ print_r($a);
 						<h1>6. Functions</h1>
 						<h4>Because, you know, we weren't using functions at all before this section</h4>
 					</section>
+
+					<section>
+						<p>A function is case-insensitive</p>
+					</section>
+
+					<section>
+						<h2>Arguments &amp; scope</h2>
+						<p>3 functions : <code>func_num_args</code>, <code>func_get_arg(argument_number)</code>, <code>func_get_args()</code></p>
+						<p>Arguments can be passed by value or reference (using the magical &amp;)</p>
+						<p>Arguments can have default values and be optional</p>
+						<pre><code contenteditable>function func($a, &amp;$b, $c = 1) {
+		return $b = $a + $b + $c;
+	}
+	$a = 1; $b = 2; $c = 3;
+	echo func($a, $b, $c); <span class="fragment">// 6</span>
+	echo $a . $b . $c; <span class="fragment">// 163</span>
+	echo func(1,2,3); <span class="fragment">// Fatal error: Only variables can be passed by reference</span></code></pre>
+					</section>
+
+					<section>
+						<h2>Scope</h2>
+						<p>Don't forget about the <code>global</code> keyword and the <code>$GLOBALS</code> variable</p>
+						<p>To get visibility on variables which are on the global scope of the current script</p>
+					</section>
+
+					<section>
+						<h2>Anonymous functions</h2>
+						<h4>Some <a href="http://www.php.net/manual/en/functions.anonymous.php">Closure</a> for this section</h2>
+						<pre><code>$a = function() { return 1; }
+echo $a();</code></pre>
+						<p>Most common use : callback functions (remember <code>usort()</code>?)</p>
+						<p>They can inherit variables from their parent scopes if declared in their header with the keyword <code>use</code></p>
+						<pre><code>function ($quantity, $product) use ($tax, &amp;$total) {}</code></pre>
+						<p>/!\ <code>$this</code> isn't available in closures in PHP 5.3</p>
+					</section>
+
 				</section>
 
 				<section>
