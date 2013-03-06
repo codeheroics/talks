@@ -749,6 +749,16 @@ print_r($a);
 					<section>
 						<h2>Streams</h2>
 						<p><small>Row, row, gently down the stream...</small></p>
+						<p>The PHP way of generalizing file, network, data compression, and other operations which share a common set of functions and uses</p>
+						<p>Referenced as <code>scheme://target</code> (Example : <code>http://www.php.net</code></p>
+						<p>Composed of:
+							<ul>
+								<li>Wrappers (like the http, file wrappers): code which tells the stream how to handle specific protocols/encodings</li>
+								<li>Context (like http headers for an http stream): a set of parameters and wrapper specific options which modify or enhance the behavior of a stream</li>
+								<li>Filters (final piece of code of a stream which can perform operations on data ad it is being read or written)</li>
+							</ul>
+						</p>
+						<p><a href="http://www.php.net/manual/en/book.stream.php">PHP manual reference</a></p>
 					</section>
 
 				</section>
