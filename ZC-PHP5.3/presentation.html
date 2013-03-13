@@ -812,7 +812,51 @@ echo $a();</code></pre>
 					</section>
 
 					<section>
-						<p>You can access an object as an array by having it extend the ArrayObject class</p>
+						<h2>Quick tour : Keywords</h2>
+						<ul>
+							<li>Classes: <code>class</code></li>
+							<li>Abstract classes: <code>abstract class</code></li>
+							<li>Interfaces: <code>interface</code></li>
+							<li>Objects</li>
+							<li>Inheritance: <code>extends</code>, <code>implements</code></li>
+							<li>Cloning: <code>clone</code></li>
+							<li>Constants: <code>constant</code></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Methods &amp; properties</h2>
+						<p>Visibility : <code>public</code> (default), <code>protected</code> or <code>private</code></p>
+						<p>Access to properties or methods of the current instance by using <code>$this</code></p>
+						<p class="fragment">
+							<a href="http://php.net/manual/en/language.oop5.paamayim-nekudotayim.php">Paamayim Nekudotayim</a>!
+							(&amp; <code>self</code>, <code>parent</code>, <code>static</code>)
+						</p>
+					</section>
+
+					<section>
+						<h2>Magic methods</h2>
+						<ul>
+							<li><code>__construct()</code> &amp; <code>__destruct()</code></li>
+							<li><code>__invoke()</code></li>
+							<li><code>__call()</code> &amp; <code>__callStatic()</code></li>
+							<li><code>__get()</code> &amp; <code>__set()</code></li>
+							<li><code>__isset()</code> &amp; <code>__unset()</code></li>
+							<li><code>__sleep()</code> &amp; <code>__wakeup()</code></li>
+							<li><code>__toString()</code></li>
+							<li><code>__clone()</code></li>
+							<li><code>__autoload()</code></li>
+						</ul>
+						<aside class="notes"><a href="http://php.net/manual/fr/language.oop5.magic.php">PHP manual reference</a></aside>
+					</section>
+
+					<section>
+						<h2>Misc</h2>
+						<ul>
+							<li>Type hinting</li>
+							<li>Reflection</li>
+							<li>SPL (<code>ArrayIterator</code>, <code>ArrayObject</code>)</li>
+						</ul>
 					</section>
 				</section>
 
