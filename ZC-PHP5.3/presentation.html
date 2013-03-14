@@ -904,6 +904,40 @@ echo $a();</code></pre>
 					<section>
 						<h1>10. Web Features</h1>
 					</section>
+
+					<section>
+						<p>Basically, the parts of PHP which are only useful for the web</p>
+					</section>
+
+					<section>
+						<h2>Sessions</h2>
+						<p>A way to preserve certain data across subsequent accesses</p>
+						<p>A visitor accessing your web site is assigned a unique id, the session id</p>
+						<p><code>$_SESSION</code></p>
+						<ul>
+							<li>session_start()</li>
+							<li>session_destroy()</li>
+							<li><a href="http://www.php.net/manual/en/ref.session.php">And more</a></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Forms</h2>
+						<p>Say hello to <code>$_GET</code>, <code>$_POST</code> &amp; <code>$_REQUEST</code></p>
+						<p>When sending files, don't forget <code>enctype='multipart/form-data'</code></p>
+					</section>
+
+					<section>
+						<h2>Cookies</h2>
+						<p><code>$_COOKIE</code> is the star</p>
+						<p>Along with <code>setcookie</code> $amp; <code>setrawcookie</code></p>
+					</section>
+
+					<section>
+						<h2>HTTP Headers</h2>
+						<p><code>header()</code> to set headers (ex: redirection)</p>
+						<p><code>headers_list()</code>, <code>headers_sent()</code>, <code>headers_remove()</code></p>
+					</section>
 				</section>
 
 				<section>
@@ -916,6 +950,8 @@ echo $a();</code></pre>
 						<ul>
 							<li>HTTP error codes</li>
 							<li>DateTime class</li>
+							<li><code>array_chunk()</code> is pretty awesome</li>
+							<li>Tons, tons of stuff </li>
 						</ul>
 					</section>
 				</section>
