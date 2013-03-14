@@ -898,6 +898,94 @@ echo $a();</code></pre>
 					<section>
 						<h1>9. Security</h1>
 					</section>
+
+					<section>
+						<p>General settings (supposed during the exam)</p>
+						<ul>
+							<li><code>register_globals</code> to <code>off</code></li>
+							<li><code>display_errors</code> to off, <code>log_errors</code> to <code>on</code></li>
+							<li><code>allow_url_include</code> to <code>off</code></li>
+							<li><code>error_reporting</code> = <code>E_ALL &amp; ~E_DEPRECATED</code></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>PHP installations</h2>
+						<p>Apache Module</p>
+						<p>
+							<a href="http://stackoverflow.com/questions/2089271/i-never-really-understood-what-is-cgi">CGI</a>
+						</p>
+						<p>You need to know the basic configuration options for PHP both as a CGI Binary and as an Apache Module</p>
+					</section>
+
+					<section>
+						<h2>Time to fight hackers!</h2>
+					</section>
+
+					<section>
+						<h2>Golden rules</h2>
+						<p class="fragment">
+							<strong>Never trust user input --&gt; Filter, validate ALL input</strong>
+							<strong>Escape output</strong>
+						</p>
+					</section>
+
+					<section>
+						<h2>Session hijacking</h2>
+						<p><code>http://www.myawesomewebsite.com?PHPSESSID=2d7d33cfb69b313eaa80368c3a237855</code></p>
+						<p>Don't let your session ids fly away!</p>
+						<ul>
+							<li><code>session.use_only_cookies</code></li>
+							<li>Regenerate session id / confirm login before important operations</li>
+							<li>Have a short sesison timeout, provide logout</li>
+						</ul>
+						<p><a href="http://www.php.net/manual/en/book.session.php">PHP Manual Reference</a></p>
+
+
+					</section>
+
+					<section>
+						<h2>XSS</h2>
+						<h4>Cross-site Scripting</h4>
+						<p>Basically, someone injects code in your website and uses it to get info / send cookies / do actions (redirection...) to your users</p>
+						<p>
+							<a href="http://en.wikipedia.org/wiki/Cross-site_scripting#Exploit_examples">Wikipedia's example is pretty simple &amp; comprehensive</a>
+						</p>
+						<p>Escape data ! <span class="fragment"><code>htmlentities</code>,<code>htmlspecialchars</code> (<code>strip_tags</code> is not enough)</span></p>
+					</section>
+
+					<section>
+						<h2>Sea-surf!... CSRF</h2>
+						<h4>Cross-Site Request Forgery</h4>
+						<p>Best self explaining example, from wikipedia:</p>
+						<code>Eve: Hello Alice! Look here: &lt;img src="http://bank.example.com/withdraw?account=Alice&amp;amount=1000000&amp;for=Eve" /&gt;</code>
+						<p>Secure your forms with an unique token</p>
+						<p>Require re-login before sesitive operations</p>
+
+					</section>
+
+					<section>
+						<h2>SQL Injections</h2>
+						Add picture from http://xkcd.com/327/
+						<p>Use prepared statements!</p>
+						<p>Use database-specific functions! (<code>mysqli_real_escape_string</code>)</p>
+						<p>Use ORMs! <span class="fragment"><small>(OK, the Zend Study Guide doesn't tell you that)</small></span></p>
+					</section>
+
+					<section>
+						<h2>Code injection</h2>
+						<p>Long story short: Do not include remote files.</p>
+						<p><code>exec()</code>, <code>system()</code>, <code>passthru()</code>... thou shalt avoid</p>
+						<p>If you <strong>must</strong>, <code>escapeshellarg()</code> &amp; <code>escapeshellcmd()</code></p>
+						<p>There is a <code>/e</code> flag in <code>preg_replace</code>. Don't use it.</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Misc</h2>
+					<p><code>$_FILES</code></p>
+					<p>Passwords encryption/hashing</p>
+					<p>SSL</p>
 				</section>
 
 				<section>
