@@ -145,9 +145,9 @@
 
 					<section>
 						<h2>Random notes...</h2>
-						<p>Studying can be boring.</p>
-						<p>You probably already know a lot of things.</p>
-						<p>You'll have to learn a lot of other things. Some by heart.</p>
+						<p>Studying can be boring <!-- No shit Sherlock --></p>
+						<p>You probably already know a lot of things</p>
+						<p>You'll have to learn a lot of other things. Some by heart</p>
 						<p>You'll have to deal with <a href="http://www.codinghorror.com/blog/">"coding horrors"</a> you'd think you'd never see in real code</p>
 						<p class="fragment">
 							<strong>At the end of it all, you should be able to understand PHP code better and faster than before</strong>
@@ -230,7 +230,7 @@ $b++; // $a now equals 2, $b is a reference to $a;</code></pre>
 					</section>
 
 					<section>
-						<h2>The wonderful world of binaries</h2>
+						<h2>The wonderful world of binary numbers</h2>
 						<pre><code>$a = 3 % 2; // $a = 1</code></pre>
 						<pre class="fragment"><code>$a = 2 &lt;&lt; 2; // $a = 8</code></pre>
 						<pre class="fragment"><code>$a = 4 &gt;&gt; 2; // $a = 0</code></pre>
@@ -291,19 +291,19 @@ echo ++$a; <span class="fragment"> /* 3 */</span></pre></code>
 					<section>
 						<h2>Language constructs</h2>
 						<ul>
-							<li><code>die(), exit()</code></li>
-							<li><code>echo(), print()</code></li>
-							<li><code>return()</code></li>
-							<li><code>empty()</code></li>
-							<li><code><strike>eval()</strike></code></li>
-							<li><code>include, include_once(), require, require_once()</code></li>
-							<li><code>isset(), unset()</code></li>
-							<li><code>list()</code></li>
+							<li class="fragment"><code>die(), exit()</code></li>
+							<li class="fragment"><code>echo(), print()</code></li>
+							<li class="fragment"><code>return()</code></li>
+							<li class="fragment"><code>empty()</code></li>
+							<li class="fragment"><code><strike>eval()</strike></code></li>
+							<li class="fragment"><code>include, include_once(), require, require_once()</code></li>
+							<li class="fragment"><code>isset(), unset()</code></li>
+							<li class="fragment"><code>list()</code></li>
 						</ul>
 					</section>
 
 					<section>
-						<h2>Galaxies of Namespaces</h2>
+						<h2>Namespaces <!--SPAAAAAAAAAAACE--></h2>
 						<p>In the broadest definition namespaces are a way of encapsulating items</p>
 						<p>Keyword <code>namespace</code></p>
 						<p>Element in the global space (default) : Prepend "\"</p>
@@ -315,11 +315,6 @@ echo ++$a; <span class="fragment"> /* 3 */</span></pre></code>
 						<p>Know about <code>php.ini</code></p>
 						<p>Know about PHP extensions (simpleXML...)</p>
 					</section>
-
-					<section>
-						<h2>Questions time !</h2>
-					</section>
-
 				</section>
 
 				<section>
@@ -329,12 +324,12 @@ echo ++$a; <span class="fragment"> /* 3 */</span></pre></code>
 
 					<section>
 						<h1>XML</h1>
-						<h3>eXtensible Markup Language, by the way</h3>
+						<h3>eXtensible Markup Language</h3>
 						<p>You need to know how to manipulate it with PHP</p>
 					</section>
 
 					<section>
-						<p>PHP has an extension to allow the parsing of XML documents : libxml</p>
+						<p>PHP has an extension to allow the parsing of XML documents : <strong>libxml</strong></p>
 						<p>2 main extensions to operate on XML documents :</p>
 						<ul>
 							<li>SimpleXML</li>
@@ -486,8 +481,9 @@ Array
 
 						<h3>REST</h3>
 						<p>Set of architectural principles</p>
-						<p>Use of HTTP verbs (GET, POST, PUT, DELETE)</p>
-						<p>Needs to answer the right things</p>
+						<p>
+							<a href="http://en.wikipedia.org/wiki/Representational_state_transfer#RESTful_web_services">Use of HTTP verbs (GET, POST, PUT, DELETE)</a>
+						</p>
 					</section>
 
 				</section>
@@ -565,7 +561,7 @@ Pretty much the same
 					<section>
 						<h2>Creating arrays</h2>
 							<pre><code>$a = array('a', 'b', 'c');</code></pre>
-							<pre class="fragment"><code>$a = ['a', 'b', 'c']; <span class="fragment">/* PHP 5.4 ! Not OK ! */</span></code></pre>
+							<pre class="fragment"><code>$a = ['a', 'b', 'c']; <span class="fragment">/* PHP 5.4! Not OK! */</span></code></pre>
 							<pre class="fragment"><code>$a = array('a' => 1, 'b' => 2, 'c' => 3);</code></pre>
 							<h3 class="fragment">... can be tricky</h3>
 							<pre class="fragment"><code>$a = array(0 => 1, 2 => 3, 4, 3 => 4);
@@ -581,14 +577,14 @@ print_r($a);
 					<section>
 						<h2>Manipulating strings all the way</h2>
 						<ul>
-							<li><code>array_push() / array_unshift()</code></li>
-							<li><code>array_pop() / array_shift()</code></li>
-							<li><code>array_merge()</code></li>
-							<li><code>array_slice()</code></li>
-							<li><code>array_splice()</code></li>
-							<li><code>array_keys() / array_values()</code></li>
-							<li><code>array_key_exists() / in_array()</code></li>
-							<li><code>range()</code></li>
+							<li class="fragment"><code>array_push() / array_unshift()</code></li>
+							<li class="fragment"><code>array_pop() / array_shift()</code></li>
+							<li class="fragment"><code>array_merge()</code></li>
+							<li class="fragment"><code>array_slice()</code></li>
+							<li class="fragment"><code>array_splice()</code></li>
+							<li class="fragment"><code>array_keys() / array_values()</code></li>
+							<li class="fragment"><code>array_key_exists() / in_array()</code></li>
+							<li class="fragment"><code>range()</code></li>
 						</ul>
 					</section>
 
@@ -640,22 +636,26 @@ print_r($a);
 						<p>Learn about <strong><code>array_diff</code></strong>:</p>
 						<pre><code>array array_diff ( array $array1 , array $array2 [, array $... ] )
 /* Returns an array containing all the entries from array1 that are not present in any of the other arrays. */</code></pre>
-						<p>Then you'll know how to work with its family:</p>
-						<ul>
-							<li><code>array_diff_assoc</code></li>
-							<li><code>array_diff_key</code></li>
-							<li><code>array_diff_uassoc</code></li>
-							<li><code>array_diff_ukey</code></li>
-						</ul>
-						<p>But also with their sworn enemies, the family of <strong><code>array_intersect</code></strong></p>
-						<pre><code>array array_intersect ( array $array1 , array $array2 [, array $ ... ] )
-/* Returns the values of array1 whose values exist in all of the arguments. */</code></pre>
-						<ul>
-							<li><code>array_intersect_assoc</code></li>
-							<li><code>array_intersect_key</code></li>
-							<li><code>array_intersect_uassoc</code></li>
-							<li><code>array_intersect_ukey</code></li>
-						</ul>
+						<div class="fragment">
+							<p>Then you'll know how to work with its family:</p>
+							<ul>
+								<li><code>array_diff_assoc</code></li>
+								<li><code>array_diff_key</code></li>
+								<li><code>array_diff_uassoc</code></li>
+								<li><code>array_diff_ukey</code></li>
+							</ul>
+						</div>
+						<div class="fragment">
+							<p>But also with their sworn enemies, the family of <strong><code>array_intersect</code></strong></p>
+							<pre><code>array array_intersect ( array $array1 , array $array2 [, array $ ... ] )
+	/* Returns the values of array1 whose values exist in all of the arguments. */</code></pre>
+							<ul>
+								<li><code>array_intersect_assoc</code></li>
+								<li><code>array_intersect_key</code></li>
+								<li><code>array_intersect_uassoc</code></li>
+								<li><code>array_intersect_ukey</code></li>
+							</ul>
+						</div>
 
 					</section>
 
@@ -674,7 +674,7 @@ print_r($a);
 								<code>f*()</code> functions, which work with a file <strong>resource</strong> (<code>fopen()</code>, <code>fclose()</code>)
 							</li>
 							<li>
-								<code>file*()</code> functions, which work with a filename <strong>resource</strong> (<code>file_get_contents()</code>, <code>file_put_contents()</code>)
+								<code>file*()</code> functions, which work with a <strong>filename</strong> (<code>file_get_contents()</code>, <code>file_put_contents()</code>)
 							</li>
 						</ul>
 					</section>
@@ -698,7 +698,7 @@ print_r($a);
 							<li><a href="http://www.php.net/manual/en/function.file.php"><code>file_exists()</code></a></li>
 							<li class="fragment">The ill-named <a href="http://www.php.net/manual/en/function.file-exists.php"><code>file()</code></a></li>
 						</ul>
-						<p class="fragment"><strong>None</strong> of the other <code>file*</code> functions have underscores in their names!</p>
+						<p class="fragment"><strong>None</strong> of the other <a href="http://www.php.net/manual/en/ref.filesystem.php"><code>file*</code></a> functions have underscores in their names!</p>
 						<ul>
 						</ul>
 					</section>
@@ -708,22 +708,22 @@ print_r($a);
 						<p><small>Get ready for the surgery...</small></p>
 						<ul class="chunklist chunklist_reference">
 							<li>
-								<a href="function.basename.php"><code>basename</code></a>, <a href="function.dirname.php"><code>dirname</code></a>
+								<a href="http://www.php.net/manual/en/function.basename.php"><code>basename</code></a>, <a href="http://www.php.net/manual/en/function.dirname.php"><code>dirname</code></a>
 							</li>
 							<li>
-								<a href="function.chmod.php"><code>chmod</code></a>, <a href="function.chown.php"><code>chown</code></a>
+								<a href="http://www.php.net/manual/en/function.chmod.php"><code>chmod</code></a>, <a href="http://www.php.net/manual/en/function.chown.php"><code>chown</code></a>
 							</li>
 							<li>
-								<a href="function.copy.php"><code>copy</code></a>, <a href="function.unlink.php"><code>unlink</code></a>, <a href="function.rename.php"><code>rename</code></a>
+								<a href="http://www.php.net/manual/en/function.copy.php"><code>copy</code></a>, <a href="http://www.php.net/manual/en/function.unlink.php"><code>unlink</code></a>, <a href="http://www.php.net/manual/en/function.rename.php"><code>rename</code></a>
 							</li>
 							<li>
-								<a href="function.mkdir.php"><code>mkdir</code></a>, <a href="function.rmdir.php"><code>rmdir</code></a>
+								<a href="http://www.php.net/manual/en/function.mkdir.php"><code>mkdir</code></a>, <a href="http://www.php.net/manual/en/function.rmdir.php"><code>rmdir</code></a>
 							</li>
 							<li>
-								<a href="function.touch.php"><code>touch</code></a>
+								<a href="http://www.php.net/manual/en/function.touch.php"><code>touch</code></a>
 							</li>
 							<li>
-								<a href="function.readdir.php"><code>readdir</code></a>
+								<a href="http://www.php.net/manual/en/function.readdir.php"><code>readdir</code></a>
 							</li>
 						</ul>
 					</section>
@@ -732,31 +732,31 @@ print_r($a);
 						<h2>Other useful I/O functions</h2>
 						<ul>
 							<li>
-								<a href="function.fgets.php"><code>fgets</code></a>, <a href="function.fgetcsv.php"><code>fgetcsv</code></a>, <a href="function.fgetss.php"><code>fgetss</code></a>
+								<a href="http://www.php.net/manual/en/function.fgets.php"><code>fgets</code></a>, <a href="http://www.php.net/manual/en/function.fgetcsv.php"><code>fgetcsv</code></a>, <a href="http://www.php.net/manual/en/function.fgetss.php"><code>fgetss</code></a>
 							</li>
 							<li>
-								<a href="function.feof.php"><code>feof</code></a> — Tests for end-of-file on a file pointer
+								<a href="http://www.php.net/manual/en/function.feof.php"><code>feof</code></a> — Tests for end-of-file on a file pointer
 							</li>
 							<li>
-								<a href="function.fpassthru.php"><code>fpassthru</code></a> — Output all remaining data on a file pointer
+								<a href="http://www.php.net/manual/en/function.fpassthru.php"><code>fpassthru</code></a> — Output all remaining data on a file pointer
 							</li>
 							<li>
-								<a href="function.fputcsv.php"><code>fputcsv</code></a> — Format line as CSV and write to file pointer
+								<a href="http://www.php.net/manual/en/function.fputcsv.php"><code>fputcsv</code></a> — Format line as CSV and write to file pointer
 							</li>
 							<li>
-								<a href="function.move-uploaded-file.php"><code>move_uploaded_file</code></a> — Moves an uploaded file to a new location
+								<a href="http://www.php.net/manual/en/function.move-uploaded-file.php"><code>move_uploaded_file</code></a> — Moves an uploaded file to a new location
 							</li>
 							<li>
-								<a href="function.readfile.php"><code>readfile</code></a> - Reads a file and writes it to the output buffer.
+								<a href="http://www.php.net/manual/en/function.readfile.php"><code>readfile</code></a> - Reads a file and writes it to the output buffer.
 							</li>
 							<li>
-								<a href="function.readdir.php"><code>readdir</code></a> - Read entry from directory handle
+								<a href="http://www.php.net/manual/en/function.readdir.php"><code>readdir</code></a> - Read entry from directory handle
 							</li>
 							<li>
-								<a href="function.tempnam.php"><code>tempnam</code></a> — Create file with unique file name
+								<a href="http://www.php.net/manual/en/function.tempnam.php"><code>tempnam</code></a> — Create file with unique file name
 							</li>
 							<li>
-								<a href="function.tmpfile.php"><code>tmpfile</code></a> — Creates a temporary file
+								<a href="http://www.php.net/manual/en/function.tmpfile.php"><code>tmpfile</code></a> — Creates a temporary file
 							</li>
 						</ul>
 						<hr>
@@ -792,8 +792,8 @@ print_r($a);
 
 					<section>
 						<h2>Arguments &amp; scope</h2>
-						<p>3 functions : <code>func_num_args</code>, <code>func_get_arg(argument_number)</code>, <code>func_get_args()</code></p>
-						<p>Arguments can be passed by value or reference (using the magical &amp;)</p>
+						<p>3 functions : <code>func_num_args()</code>, <code>func_get_arg(argument_number)</code>, <code>func_get_args()</code></p>
+						<p>Arguments can be passed by value or reference (using &amp;)</p>
 						<p>Arguments can have default values and be optional</p>
 						<pre><code contenteditable>function func($a, &amp;$b, $c = 1) {
 		return $b = $a + $b + $c;
@@ -806,8 +806,7 @@ print_r($a);
 
 					<section>
 						<h2>Scope</h2>
-						<p>Don't forget about the <code>global</code> keyword and the <code>$GLOBALS</code> variable</p>
-						<p>To get visibility on variables which are on the global scope of the current script</p>
+						<p>Use <code>global</code> keyword and <code>$GLOBALS</code> variable to get visibility on variables which are on the global scope of the current script</p>
 					</section>
 
 					<section>
@@ -847,24 +846,24 @@ echo $a();</code></pre>
 						<p>Access to properties or methods of the current instance by using <code>$this</code></p>
 						<p class="fragment">
 							<a href="http://php.net/manual/en/language.oop5.paamayim-nekudotayim.php">Paamayim Nekudotayim</a>!
-							(&amp; <code>self</code>, <code>parent</code>, <code>static</code>)
+							(end <code>self</code>, <code>parent</code>, <code>static</code>)
 						</p>
 					</section>
 
 					<section>
 						<h2>Magic methods</h2>
 						<ul>
-							<li><code>__construct()</code> &amp; <code>__destruct()</code></li>
-							<li><code>__invoke()</code></li>
-							<li><code>__call()</code> &amp; <code>__callStatic()</code></li>
-							<li><code>__get()</code> &amp; <code>__set()</code></li>
-							<li><code>__isset()</code> &amp; <code>__unset()</code></li>
-							<li><code>__sleep()</code> &amp; <code>__wakeup()</code></li>
-							<li><code>__toString()</code></li>
-							<li><code>__clone()</code></li>
-							<li><code>__autoload()</code></li>
+							<li class="fragment"><code>__construct()</code> &amp; <code>__destruct()</code></li>
+							<li class="fragment"><code>__invoke()</code></li>
+							<li class="fragment"><code>__call()</code> &amp; <code>__callStatic()</code></li>
+							<li class="fragment"><code>__get()</code> &amp; <code>__set()</code></li>
+							<li class="fragment"><code>__isset()</code> &amp; <code>__unset()</code></li>
+							<li class="fragment"><code>__sleep()</code> &amp; <code>__wakeup()</code></li>
+							<li class="fragment"><code>__toString()</code></li>
+							<li class="fragment"><code>__clone()</code></li>
+							<li class="fragment"><code>__autoload()</code></li>
 						</ul>
-						<aside class="notes"><a href="http://php.net/manual/fr/language.oop5.magic.php">PHP manual reference</a></aside>
+						<p class="fragment"><a href="http://php.net/manual/fr/language.oop5.magic.php">PHP manual reference</a></p>
 					</section>
 
 					<section>
@@ -884,7 +883,7 @@ echo $a();</code></pre>
 
 					<section>
 						<h2>It says "databases", but...</h2>
-						<p>It really is SQL &amp; friends</p>
+						<p>It really is SQL and friends</p>
 						<p>Nothing specific to a particular database (MySQL, PostgreSQL, Oracle)</p>
 					</section>
 
@@ -898,15 +897,15 @@ echo $a();</code></pre>
 							<li><code>JOIN</code> (<code>INNER</code>, <code>LEFT</code>, <code>RIGHT</code>)</li>
 							<li>Transactions</li>
 							<li>Prepared statements</li>
+							<li>Primary &amp; foreign keys</li>
 						</ul>
-						<p>Primary &amp; foreign Keys</p>
 					</section>
 
 					<section>
 						<h2>PDO</h2>
 						<h3>PHP Data Objects</h3>
 						<p>An interface for accessing databases in PHP</p>
-						<p>You need to be able to use it.</p>
+						<p>You need to be able to use it</p>
 						<p><a href="http://www.php.net/manual/en/book.pdo.php">PHP Manual reference</a></p>
 					</section>
 				</section>
@@ -940,21 +939,13 @@ echo $a();</code></pre>
 					</section>
 
 					<section>
-						<h2>Golden rules</h2>
-						<p class="fragment">
-							<strong>Never trust user input --&gt; Filter, validate ALL input</strong>
-							<strong>Escape output</strong>
-						</p>
-					</section>
-
-					<section>
 						<h2>Session hijacking</h2>
 						<p><code>http://www.myawesomewebsite.com?PHPSESSID=2d7d33cfb69b313eaa80368c3a237855</code></p>
 						<p>Don't let your session ids fly away!</p>
 						<ul>
 							<li><code>session.use_only_cookies</code></li>
 							<li>Regenerate session id / confirm login before important operations</li>
-							<li>Have a short sesison timeout, provide logout</li>
+							<li>Have a short session timeout, provide logout</li>
 						</ul>
 						<p><a href="http://www.php.net/manual/en/book.session.php">PHP Manual Reference</a></p>
 
@@ -966,32 +957,34 @@ echo $a();</code></pre>
 						<h4>Cross-site Scripting</h4>
 						<p>Basically, someone injects code in your website and uses it to get info / send cookies / do actions (redirection...) to your users</p>
 						<p>
-							<a href="http://en.wikipedia.org/wiki/Cross-site_scripting#Exploit_examples">Wikipedia's example is pretty simple &amp; comprehensive</a>
+							<a href="http://en.wikipedia.org/wiki/Cross-site_scripting#Exploit_examples">Wikipedia's example is pretty simple and comprehensive</a>
 						</p>
-						<p>Escape data ! <span class="fragment"><code>htmlentities</code>,<code>htmlspecialchars</code> (<code>strip_tags</code> is not enough)</span></p>
+						<p>Escape data with <code>htmlentities</code>, <code>htmlspecialchars</code> (<code>strip_tags</code> is not enough)</p>
 					</section>
 
 					<section>
 						<h2>Sea-surf!... CSRF</h2>
 						<h4>Cross-Site Request Forgery</h4>
-						<p>Best self explaining example, from wikipedia:</p>
+						<p>Best self explaining example, from <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">Wikipedia</a>:</p>
 						<code>Eve: Hello Alice! Look here: &lt;img src="http://bank.example.com/withdraw?account=Alice&amp;amount=1000000&amp;for=Eve" /&gt;</code>
 						<p>Secure your forms with an unique token</p>
-						<p>Require re-login before sesitive operations</p>
+						<p>Require re-login before sensitive operations</p>
+						<p><a href="http://www.codinghorror.com/blog/2008/10/preventing-csrf-and-xsrf-attacks.html">It is not something that happens just to the others!</a></p>
 
 					</section>
 
 					<section>
 						<h2>SQL Injections</h2>
-						Add picture from http://xkcd.com/327/
+						<!--Add picture from http://xkcd.com/327/-->
 						<p>Use prepared statements!</p>
 						<p>Use database-specific functions! (<code>mysqli_real_escape_string</code>)</p>
-						<p>Use ORMs! <span class="fragment"><small>(OK, the Zend Study Guide doesn't tell you that)</small></span></p>
+						<p>Use ORMs! <small>(OK, the Zend Study Guide doesn't tell you that, but consider <a href="http://propelorm.org/">Propel</a> or <a href="http://www.doctrine-project.org/">Doctrine</a>)</small></p>
 					</section>
 
 					<section>
 						<h2>Code injection</h2>
 						<p>Long story short: Do not include remote files.</p>
+						<p><code>eval</code> is evil (most of the time)</p>
 						<p><code>exec()</code>, <code>system()</code>, <code>passthru()</code>... thou shalt avoid</p>
 						<p>If you <strong>must</strong>, <code>escapeshellarg()</code> &amp; <code>escapeshellcmd()</code></p>
 						<p>There is a <code>/e</code> flag in <code>preg_replace</code>. Don't use it.</p>
@@ -1034,8 +1027,8 @@ echo $a();</code></pre>
 
 					<section>
 						<h2>Cookies</h2>
-						<p><code>$_COOKIE</code> is the star</p>
-						<p>Along with <code>setcookie</code> $amp; <code>setrawcookie</code></p>
+						<p><a href="http://php.net/manual/en/reserved.variables.cookies.php"><code>$_COOKIE</code></a> is the star</p>
+						<p>Along with <a href="http://www.php.net/manual/en/function.setcookie.php"><code>setcookie</code></a> and <a href="http://www.php.net/manual/en/function.setrawcookie.php"><code>setrawcookie</code></a></p>
 					</section>
 
 					<section>
@@ -1062,17 +1055,13 @@ echo $a();</code></pre>
 				</section>
 
 				<section>
-					<h2>Aaaand... We're done!</h2>
-					<h3>Questions?</h3>
-				</section>
-
-				<section>
 					<h1>More resources...</h1>
 					<ul>
 						<li>The free <a href="http://www.zend.com/services/certification/">Zend PHP 5.3 Certification Study Guide</a> is your best friend. It lists its sources, too!</li>
 						<li><a href="http://shop.zend.com/fr/php-training.html">Zend formations</a> (including the <a href="http://shop.zend.com/fr/php-training/php-53-training-bundle.html">"economic" certification bundle</a>) have more in-depth content, plus more typical test questions</li>
 						<li>No mock tests :(</li>
-						<li>... But old mock tests for the PHP5 (not 5.3!) certification can be found online</li>
+						<li><a href="http://www.planet-php.net/">PHP Blogs</a></li>
+						<li>Google is your friend, Stack Overflow your ally, and the PHP manual is almighty</li>
 					</ul>
 
 					<aside class="notes">
@@ -1093,6 +1082,11 @@ echo $a();</code></pre>
 						* Add a pause for questions after each part
 
 					</aside>
+				</section>
+
+				<section>
+					<h2>Aaaand... We're done!</h2>
+					<h3>Questions?</h3>
 				</section>
 
 				<section>
