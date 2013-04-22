@@ -1,4 +1,4 @@
-#Formations by Hugo Agbonon
+#Presentations by Hugo Agbonon
 
-This is a repository created to host presentations for formations done by me.
-Let's hope it'll get really busy soon :)
+* 02/2013 - Repository creation
+* 04/2013 - Add a presentation about the Zend PHP 5.3 Certification
