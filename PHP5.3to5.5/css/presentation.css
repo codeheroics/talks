@@ -1,0 +1,47 @@
+html,body {
+  background-color: #000;
+  color: #FFF;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+a,a:visited {
+  font-weight: bold;
+  text-decoration: none;
+  color: #E55B0A;
+}
+
+h1 {
+  font-size: 256px;
+  margin: 0;
+  text-align: center;
+}
+
+h2 {
+  font-size: 96px;
+  margin: 0;
+  text-align: center;
+}
+
+.step {
+  position: relative;
+  width: 900px;
+  padding: 40px;
+  margin: 20px auto;
+  font-size: 64px;
+  line-height: 1.5;
+}
+.impress-enabled .step {
+    margin: 0;
+    opacity: 0.1;
+
+    -webkit-transition: opacity 1s;
+    -moz-transition:    opacity 1s;
+    -ms-transition:     opacity 1s;
+    -o-transition:      opacity 1s;
+    transition:         opacity 1s;
+}
+
+.impress-enabled .step.active { opacity: 1 }
+small {
+  font-size: 33%;
+}
