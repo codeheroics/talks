@@ -31,6 +31,8 @@
 
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/presentation.css">
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/default.min.css">
+    <script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
   </head>
   <body>
     <div id="impress">
@@ -53,19 +55,96 @@
         </ul>
       </div>
 
-      <div class="step" data-x="0" data-y="1000" id="5.3">
-        <h3>PHP 5.3</h3>
-      </div>
+      <section id="PHP5.3">
+        <div class="step" data-x="0" data-y="1000" id="5.3">
+          <h2>PHP 5.3</h2>
+        </div>
 
-      <div class="step" data-x="1000" data-y="0" data-rotate="-90" id="5.4">5.4</div>
+        <div class="step" data-x="1000" data-y="1000">
+          <h3>Release date: 2009-06-30</h3>
+          <legend>It's been a while...</legend>
+          <p>Basis for Symfony 2, Zend Framework 2, Laravel 4...</p>
+          <h3>Current version: 5.3.27</h3>
+        </div>
+
+        <div class="step" data-x="2000" data-y="1000">
+          <h3>End of support: 2014-07</h3>
+          <legend>In less than a year, no more security fixes!</legend>
+        </div>
+      </section>
+
+      <section id="PHP5.4">
+        <div class="step" data-x="1000" data-y="0" data-rotate="-90" id="5.4">
+          <h2>PHP 5.4</h2>
+          <h3>Release date: 2012-03-01</h3>
+          <legend>It took almost 4 years!</legend>
+          <h3>Current version: 5.4.21</h3>
+          <legend>End of support: ~2015</legend>
+        </div>
 
       <div class="step" data-x="1000" data-y="-1000" data-rotate="-90" id="Traits">Traits</div>
+      </section>
 
-      <div class="step" data-x="-1000" data-y="0" data-rotate="90" id="5.5">5.5</div>
+      <section>
+        <div class="step" data-x="-1000" data-y="0" data-rotate="90" id="5.5">
+          <h2>PHP 5.5</h2>
+          <h3>Release date: 2013-06-20</h3>
+          <h3>Current version: 5.5.5</h3>
+          <legend>End of support: ~2016</legend>
+        </div>
 
-      <div class="step" data-x="0" data-y="-1000" data-rotate="180" id="6">The future: PHP 5.6, 6...</div>
+        <div class="step" data-x="-1000" data-y="1000" data-rotate="90">
+          <h3>try... catch... finally!</h3>
+          <pre><code>try {
+   //do something
+} catch(Exception ex) {
+   //handle an error
+} finally {
+   //clean up after yourself
+}</code></pre>
+        </div>
 
-      <div class="step" id="overview" data-scale="5">Thank you :)</div>
+        <div class="step" data-x="-1000" data-y="2000" data-rotate="90">
+          <h3>What happened to JSON?</h3>
+          <img src="pictures/PHPJSON.jpg" />
+        </div>
+
+        <div class="step" data-x="-1000" data-y="3000" data-rotate="90">
+          <blockquote>The Software shall be used for Good, not Evil.</blockquote>
+          <legend>Douglas Crockford</legend>
+          <blockquote>We want to (be able to) be evil!</blockquote>
+          <legend>PHP developers (not really)</legend>
+        </div>
+
+        <div class="step" data-x="-1000" data-y="4000" data-rotate="90">
+          <p>So the extension ext/JSON got replaced by a free one and there should* not exist any problems</p>
+          <legend>*Except some distribs (Debian, Fedora) removed the old extension but did not automatically add the new one, so users panicked</legend>
+        </div>
+      </section>
+
+      <section id="future">
+        <div class="step" data-x="0" data-y="-1000" data-rotate="180" id="6">
+          <h2>The future: PHP 5.6, 6...</h2>
+        </div>
+      </section>
+
+      <section id="conclusion">
+        <div class="step" data-x="5000" data-y="5000" data-z="-2000">
+          <h2>Thank you :)</h2>
+          <h3>Any questions?</h3>
+        </div>
+        <div class="step" data-x="6000" data-y="5000" data-z="-2000" id="resources">
+          Resources:
+          <ul>
+            <li>http://php.net/</li>
+            <li>https://liorkaplan.wordpress.com/2013/06/01/bye-bye-non-free-php-json-extension/</li>
+            <li>http://philsturgeon.co.uk/blog/2013/08/fud-cracker-php-55-never-lost-json-support</li>
+            <li>http://stackoverflow.com/questions/927214/how-can-i-get-around-the-lack-of-a-finally-block-in-php</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="step" id="overview" data-scale="5"></div>
     </div>
 
 
