@@ -67,7 +67,19 @@
           <h3>Current version: 5.3.27</h3>
         </div>
 
-        <div class="step" data-x="2000" data-y="1000">
+        <div class="step" data-x="3000" data-y="1000">
+          <h3>It added loads of things</h3>
+          <ul>
+            <li>Namespaces</li>
+            <li>Closures</li>
+            <li>Late static binding</li>
+            <li>Nowdoc</li>
+            <li>goto</li>
+            <li>Nested exceptions</li>
+          </ul>
+        </div>
+
+        <div class="step" data-x="4000" data-y="1000">
           <h3>End of support: 2014-07</h3>
           <legend>In less than a year, no more security fixes!</legend>
         </div>
@@ -98,6 +110,8 @@
           <ul>
             <li>Arrays short syntax</li>
             <li>Array dereferencing</li>
+            <li>$this in closures</li>
+            <li>Class member access on instantiation</li>
             <li>Traits</li>
             <li>Webserver</li>
             <li><a href="http://www.php.net/manual/en/migration54.new-features.php">Other things</a></li>
@@ -119,13 +133,33 @@
 echo helloTF1()[1];</code></pre>
         </div>
 
-        <div class="step" data-x="1000" data-y="-5000" data-rotate="-90" id="Traits">
+        <div class="step" data-x="1000" data-y="-5000" data-rotate="-90">
+          <pre><code>&lt;?php
+class A {
+  private $value = 1;
+  public function getClosure()
+  {
+    return function() { return $this->value; };
+  }
+}
+
+$a = new A;
+$fn = $a->getClosure();
+echo $fn(); // 1</code></pre>
+        </div>
+
+        <div class="step" data-x="1000" data-y="-6000" data-rotate="-90">
+          <blockquote>Class member access on instantiation has been added, e.g. (new Foo)->bar().</blockquote>
+        </div>
+
+        <div class="step" data-x="1000" data-y="-7000" data-rotate="-90" id="Traits">
           <h3>Traits</h3>
+          <legend>The main addition</legend>
           <hr>
           <blockquote>Traits are a mechanism for code reuse in single inheritance languages such as PHP</blockquote>
         </div>
 
-        <div class="step" data-x="1000" data-y="-6000" data-rotate="-90">
+        <div class="step" data-x="1000" data-y="-8000" data-rotate="-90">
         <pre><code>trait Color {
     public function getColor() {
         return 'blue';
@@ -137,6 +171,26 @@ class Car extends Vehicle {
 }
 $myCar = new Car;
 echo $myCar->getColor(); // blue</code></pre>
+        </div>
+
+        <div class="step" data-x="1000" data-y="-9000" data-rotate="-90">
+          <p>A new keyword, <code>insteadof</code>, has been added to prevent conflicts in traits</p>
+          <p>Without it, if you get a conflict, fatal error.</p>
+        </div>
+
+        <div class="step" data-x="1000" data-y="-10000" data-rotate="-90">
+          <p>
+            <a href="http://blog.ircmaxell.com/2011/07/are-traits-new-eval.html">Be careful</a>
+            <a href="http://www.sitepoint.com/php-traits-good-or-bad/">when using traits</a>
+          </p>
+          <p>Don't use them as a replacement for class inheritance (as seem to do 50% of the explanations on the Internet)</p>
+        </div>
+
+        <div class="step" data-x="1000" data-y="-11000" data-rotate="-90">
+          <h3>Web server</h3>
+          <pre><code>hugo@VF19:~> php -S localhost:8000</code></pre>
+          <pre><code>python -m SimpleHTTPServer 8000</code></pre>
+          <p>Obviously, only for tests</p>
         </div>
       </section>
 
@@ -161,6 +215,7 @@ echo $myCar->getColor(); // blue</code></pre>
           <h3>Main changes:</h3>
           <ul>
             <li>empty()</li>
+            <li>Generators</li>
             <li>try, catch... finally!</li>
           </ul>
         </div>
@@ -172,6 +227,10 @@ echo $myCar->getColor(); // blue</code></pre>
 empty($a);
 $b = '        ';
 empty(trim($b));</code></pre>
+        </div>
+
+        <div class="step" data-x="-1000" data-y="4000" data-rotate="90">
+          <h3>Generators (yield)</h3>
         </div>
 
         <div class="step" data-x="-1000" data-y="7000" data-rotate="90">
@@ -226,6 +285,11 @@ empty(trim($b));</code></pre>
             <li>http://stackoverflow.com/questions/7892749/traits-in-php-any-real-world-examples-best-practices</li>
             <li>http://www.php.net/manual/en/language.oop5.traits.php</li>
             <li>http://blog.lepine.pro/php/php-5-4-les-traits-horizontal-reuses</li>
+            <li>http://blog.ircmaxell.com/2011/07/are-traits-new-eval.html</li>
+            <li>http://www.sitepoint.com/php-traits-good-or-bad/</li>
+            <li>http://blog.ircmaxell.com/2012/07/what-generators-can-do-for-you.html</li>
+            <li>http://blakegardner.co/2013/06/24/practical-usage-of-php-5-5-generators-yield-keyword/</li>
+            <li>http://stackoverflow.com/questions/17483806/what-does-yield-mean-in-php</li>
           </ul>
         </div>
       </section>
