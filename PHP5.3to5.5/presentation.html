@@ -263,10 +263,10 @@ empty(trim($b));</code></pre>
 
         <div class="step" data-x="-1000" data-y="6000" data-rotate="90">
           <pre><code>$data = range(0, 1000000);
-echo memory_get_usage() / 1048576 . " MB"; 
+echo memory_get_usage() / 1048576 . " MB";
 // output: 137.92 MB</code></pre>
           <pre><code>$data = range(0, 1000000);
-echo memory_get_usage() / 1048576 . " MB"; 
+echo memory_get_usage() / 1048576 . " MB";
 // output: 0.22 MB</code></pre>
           <code><pre>foreach ($data as $key => $val) {
   echo "key: ".$key." value: ".$val."\n";
@@ -331,13 +331,47 @@ foreach ($array as list($a, $b)) {
 
         <div class="step"  data-x="-2000" data-y="-1000" data-rotate="180">
           <h3>PHP 5.6</h3>
+          <p>Should be out in 2014</p>
         </div>
 
         <div class="step"  data-x="-3000" data-y="-1000" data-rotate="180">
+          <h3>Variadic functions</h3>
+          <legend>(accepted)</legend>
+          <pre><code>class MySQL implements DB {
+  public function query($query, ...$params) {
+    $stmt = $this->pdo->prepare($query);
+    $stmt->execute($params);
+    return $stmt;
+  }
+    // ...
+}</code></pre>
+        </div>
+
+        <div class="step"  data-x="-4000" data-y="-1000" data-rotate="180">
+          <h3>Skipping optional parameters for functions</h3>
+          <legend>(under discussion)</legend>
+          <pre><code>function create_query(
+  $where, $order_by, $join_type='',
+    $execute = false, $report_errors = true
+);</code></pre>
+          <pre><code>create_query(
+  "deleted=0", "name", default,
+    default, false);</code></pre>
+        </div>
+
+        <div class="step"  data-x="-5000" data-y="-1000" data-rotate="180">
           <p>Problems for the future : <a href="http://news.php.net/php.internals/64770">the (lack of) vision</a></p>
           <p>The PHP internals are a <a href="http://blog.ircmaxell.com/2013/09/rambling-on-internals.html">battlefield</a></p>
           <p>What major changes should PHP 6 bring?</p>
           <p><a href="http://edorian.github.io/2013-10-19-Please-stop-pretending-PHP-is-a-good-language/">And existing problems still have to be fixed</a></p>
+        </div>
+
+        <div class="step" data-x="-6000" data-y="-1000" data-rotate="180">
+          <h4>The immediate future for us e-TF1 PHP developers:</h4>
+          <ul>
+            <li>ZendCon Europe (19-20/11)</li>
+            <li>PHP Forum Paris (21-22/11)</li>
+          </ul>
         </div>
       </section>
 
