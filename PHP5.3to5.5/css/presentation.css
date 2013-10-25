@@ -1,5 +1,9 @@
 html,body {
   background-color: #000;
+  background-image: url('../pictures/phpBackground.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   color: #FFF;
   font-family: 'Source Sans Pro', sans-serif;
 }
@@ -54,6 +58,10 @@ legend {
 
 pre {
   text-align: left;
+}
+
+code {
+  font-size: 75%;
 }
 
 .step {

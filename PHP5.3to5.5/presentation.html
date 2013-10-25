@@ -33,6 +33,11 @@
     <link rel="stylesheet" type="text/css" href="css/presentation.css">
     <link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/default.min.css">
     <script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
+
+    <script>
+      hljs.tabReplace = '    ';
+      hljs.initHighlightingOnLoad();
+    </script>
   </head>
   <body>
     <div id="impress">
@@ -46,9 +51,9 @@
           </p>
       </div>
 
-      <div class="step" data-z="-1000" id="plan">
+      <div class="step" data-z="-1500" id="plan">
         <ul>
-          <li>Introduction: PHP 5.3</li>
+          <li>PHP 5.3</li>
           <li>PHP 5.4</li>
           <li>PHP 5.5</li>
           <li>The future</li>
@@ -81,7 +86,7 @@
 
         <div class="step" data-x="3000" data-y="1000">
           <h3>End of support: 2014-07</h3>
-          <legend>In less than a year, no more security fixes!</legend>
+          <legend>No more bugs are fixed, and in less than a year, no more security fixes!</legend>
         </div>
       </section>
 
@@ -125,21 +130,23 @@
         </div>
 
         <div class="step" data-x="1000" data-y="-4000" data-rotate="-90">
-          <h3>Array dereferencing</h3>
+          <h3>Array &amp; string dereferencing</h3>
           <pre><code>echo array('PHP', '5.4+')[0];</code></pre>
           <pre><code>function helloTF1() {
   return ['Hello', 'TF1'];
 }
 echo helloTF1()[1];</code></pre>
+        <pre><code>echo 'Hugo'[1];</code></pre>
         </div>
 
         <div class="step" data-x="1000" data-y="-5000" data-rotate="-90">
-          <pre><code>&lt;?php
-class A {
+          <pre><code>class A {
   private $value = 1;
   public function getClosure()
   {
-    return function() { return $this->value; };
+    return function() {
+      return $this->value;
+    };
   }
 }
 
@@ -192,6 +199,11 @@ echo $myCar->getColor(); // blue</code></pre>
           <pre><code>python -m SimpleHTTPServer 8000</code></pre>
           <p>Obviously, only for tests</p>
         </div>
+
+        <div class="step" data-x="1000" data-y="-12000" data-rotate="-90">
+          <h3>One last thing...</h3>
+          <code>htmlspecialchars</code> &amp; <code>htmlentities</code>'s default character set changed from ISO-8859-1 to UTF-8
+        </div>
       </section>
 
       <section>
@@ -212,15 +224,24 @@ echo $myCar->getColor(); // blue</code></pre>
         </div>
 
         <div class="step" data-x="-1000" data-y="2000" data-rotate="90">
+          <h3>It deprecated</h3>
+          <ul>
+            <li>The original MySQL extension</li>
+            <li>The <code>/e</code> flag in <code>preg_replace</code></li>
+          </ul>
+        </div>
+
+        <div class="step" data-x="-1000" data-y="3000" data-rotate="90">
           <h3>Main changes:</h3>
           <ul>
             <li>empty()</li>
             <li>Generators</li>
             <li>try, catch... finally!</li>
+            <li>Other things</li>
           </ul>
         </div>
 
-        <div class="step" data-x="-1000" data-y="3000" data-rotate="90">
+        <div class="step" data-x="-1000" data-y="4000" data-rotate="90">
           <h3>empty</h3>
           <legend>My personal favorite</legend>
           <pre><code>$a = '';
@@ -229,8 +250,27 @@ $b = '        ';
 empty(trim($b));</code></pre>
         </div>
 
-        <div class="step" data-x="-1000" data-y="4000" data-rotate="90">
+        <div class="step" data-x="-1000" data-y="5000" data-rotate="90">
           <h3>Generators (yield)</h3>
+          <pre><code>array range (mixed $start , mixed $end)</code></pre>
+          <pre><code>function xrange($start, $limit) {
+    for ($i = $start; $i &lt;= $limit; $i++) {
+        yield $i;
+    }
+}
+</code></pre>
+        </div>
+
+        <div class="step" data-x="-1000" data-y="6000" data-rotate="90">
+          <pre><code>$data = range(0, 1000000);
+echo memory_get_usage() / 1048576 . " MB"; 
+// output: 137.92 MB</code></pre>
+          <pre><code>$data = range(0, 1000000);
+echo memory_get_usage() / 1048576 . " MB"; 
+// output: 0.22 MB</code></pre>
+          <code><pre>foreach ($data as $key => $val) {
+  echo "key: ".$key." value: ".$val."\n";
+}</code></pre>
         </div>
 
         <div class="step" data-x="-1000" data-y="7000" data-rotate="90">
@@ -245,18 +285,33 @@ empty(trim($b));</code></pre>
         </div>
 
         <div class="step" data-x="-1000" data-y="8000" data-rotate="90">
+          <h2>Other things</h2>
+          <pre><code>class A {}
+echo A::class;</code></pre>
+          <pre><code>$array = [[1, 2], [3, 4]];
+foreach ($array as list($a, $b)) {
+    echo "First: $a; Second: $b\n";
+}</code></pre>
+        </div>
+
+        <div  class="step" data-x="-1000" data-y="9000" data-rotate="90">
+          <p>Zend Optimizer+ as OPcache extension</p>
+          <p>New functions for secure password hashing</p>
+        </div>
+
+        <div class="step" data-x="-1000" data-y="10000" data-rotate="90">
           <h3>What happened to JSON?</h3>
           <img src="pictures/PHPJSON.jpg" />
         </div>
 
-        <div class="step" data-x="-1000" data-y="9000" data-rotate="90">
+        <div class="step" data-x="-1000" data-y="11000" data-rotate="90">
           <blockquote>The Software shall be used for Good, not Evil.</blockquote>
           <legend>Douglas Crockford</legend>
           <blockquote>We want to (be able to) be evil!</blockquote>
           <legend>PHP developers (not really)</legend>
         </div>
 
-        <div class="step" data-x="-1000" data-y="10000" data-rotate="90">
+        <div class="step" data-x="-1000" data-y="12000" data-rotate="90">
           <p>So the extension ext/JSON got replaced by a free one and there should* not exist any problems</p>
           <legend>*Except some distribs (Debian, Fedora) removed the old extension but did not automatically add the new one, so users panicked</legend>
         </div>
@@ -297,10 +352,12 @@ empty(trim($b));</code></pre>
           <h3>Any questions?</h3>
           <legend>(I have absolutely no idea if I have time to take some, though)</legend>
         </div>
+
         <div class="step" data-x="6000" data-y="5000" data-z="-2000" id="resources">
           Resources:
           <ul>
             <li>http://php.net/</li>
+            <li>http://blog.pascal-martin.fr/</li>
             <li>https://liorkaplan.wordpress.com/2013/06/01/bye-bye-non-free-php-json-extension/</li>
             <li>http://philsturgeon.co.uk/blog/2013/08/fud-cracker-php-55-never-lost-json-support</li>
             <li>http://stackoverflow.com/questions/927214/how-can-i-get-around-the-lack-of-a-finally-block-in-php</li>
@@ -318,6 +375,7 @@ empty(trim($b));</code></pre>
             <li>http://news.php.net/php.internals/64770</li>
             <li>http://blog.ircmaxell.com/2013/09/rambling-on-internals.html</li>
             <li>http://edorian.github.io/2013-10-19-Please-stop-pretending-PHP-is-a-good-language/</li>
+            <li>https://wiki.php.net/rfc/skipparams</li>
           </ul>
         </div>
       </section>
