@@ -1,0 +1,95 @@
+html,body {
+  background-color: #000;
+  background-image: url('../pictures/phpBackground.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #FFF;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+a,a:visited {
+  font-weight: bold;
+  text-decoration: none;
+  color: #E55B0A;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 256px;
+  margin: 0;
+  text-align: center;
+}
+
+h2 {
+  font-size: 96px;
+  margin: 0;
+  text-align: center;
+}
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+  color: #222;
+}
+blockquote:before {
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote p {
+  display inline;
+}
+
+legend {
+  font-style: italic;
+  font-size: 50%;
+  text-align: right;
+}
+
+pre {
+  text-align: left;
+}
+
+code {
+  font-size: 75%;
+}
+
+.step {
+  position: relative;
+  width: 950px;
+  padding: 40px;
+  margin: 20px auto;
+  font-size: 48px;
+  line-height: 1.5;
+  text-align: center;
+}
+.impress-enabled .step {
+    margin: 0;
+    opacity: 0.1;
+
+    -webkit-transition: opacity 1s;
+    -moz-transition:    opacity 1s;
+    -ms-transition:     opacity 1s;
+    -o-transition:      opacity 1s;
+    transition:         opacity 1s;
+}
+
+.impress-enabled .step.active { opacity: 1 }
+small {
+  font-size: 33%;
+}
+
+#resources {
+  font-size: 14px;
+  text-align: left;
+}

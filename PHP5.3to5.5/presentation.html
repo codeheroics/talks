@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="eng">
+  <!--
+       __________  ___ _____________       ___________
+     \______   \/   |   \______   \  /\  \_   _____/______  ____   _____
+      |     ___/    ~    \     ___/  \/   |    __) \_  __ \/  _ \ /     \
+      |    |   \    Y    /    |      /\   |     \   |  | \(  <_> )  Y Y  \
+      |____|    \___|_  /|____|      \/   \___  /   |__|   \____/|__|_|  /
+                      \/                      \/                       \/
+          .________   ________     __            .________    .________
+          |   ____/   \_____  \  _/  |_  ____    |   ____/    |   ____/
+          |____  \      _(__  <  \   __\/  _ \   |____  \     |____  \
+          /       \    /       \  |  | (  <_> )  /       \    /       \
+         /______  / /\/______  /  |__|  \____/  /______  / /\/______  /
+                \/  \/       \/                        \/  \/       \/
+  -->
+  <head>
+    <meta charset="utf-8">
+    <title>
+      From PHP 5.3 to PHP 5.5
+    </title>
+
+    <meta name="viewport" content="width=1024" />
+
+    <meta name="description" content="From PHP 5.3 to PHP 5.5 : At last, PHP evolves">
+    <meta name="author" content="Hugo Agbonon">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/presentation.css">
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/default.min.css">
+    <script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
+
+    <script>
+      hljs.tabReplace = '    ';
+      hljs.initHighlightingOnLoad();
+    </script>
+  </head>
+  <body>
+    <div id="impress">
+      <div class="step" id="PHP">
+        <h1>PHP</h1>
+        <h2>From 5.3 to 5.5</h2>
+          <p style="text-align:center;">
+            <small>
+              Presentation by <a href="http://www.agbonon.fr" target="blank">Hugo Agbonon</a> (<a href="http://www.twitter.com/Hugo_Agbonon" target="blank">@Hugo_Agbonon</a>), created using <a href="https://github.com/bartaz/impress.js" target="blank">impress.js</a>
+            </small>
+          </p>
+      </div>
+
+      <div class="step" data-z="-1500" id="plan">
+        <ul>
+          <li>PHP 5.3</li>
+          <li>PHP 5.4</li>
+          <li>PHP 5.5</li>
+          <li>The future</li>
+        </ul>
+      </div>
+
+      <section id="PHP5.3">
+        <div class="step" data-x="0" data-y="1000" id="5.3">
+          <h2>PHP 5.3</h2>
+        </div>
+
+        <div class="step" data-x="1000" data-y="1000">
+          <h3>Release date: 2009-06-30</h3>
+          <legend>It's been a while...</legend>
+          <p>Basis for Symfony 2, Zend Framework 2, Laravel 4...</p>
+          <h3>Current version: 5.3.27</h3>
+        </div>
+
+        <div class="step" data-x="2000" data-y="1000">
+          <h3>It added loads of things</h3>
+          <ul>
+            <li>Namespaces</li>
+            <li>Closures</li>
+            <li>Late static binding</li>
+            <li>Nowdoc</li>
+            <li>goto</li>
+            <li>Nested exceptions</li>
+          </ul>
+        </div>
+
+        <div class="step" data-x="3000" data-y="1000">
+          <h3>End of support: 2014-07</h3>
+          <legend>No more bugs are fixed, and in less than a year, no more security fixes!</legend>
+        </div>
+      </section>
+
+      <section id="PHP5.4">
+        <div class="step" data-x="1000" data-y="0" data-rotate="-90" id="5.4">
+          <h2>PHP 5.4</h2>
+          <h3>Release date: 2012-03-01</h3>
+          <legend>It took almost 4 years!</legend>
+          <h3>Current version: 5.4.21</h3>
+          <legend>End of support: ~2015</legend>
+        </div>
+
+        <div class="step" data-x="1000" data-y="-1000" data-rotate="-90">
+          <h3>It got rid of...</h3>
+          <ul>
+            <li>Safe mode</li>
+            <li>Magic quotes</li>
+            <li>register_globals</li>
+            <img src="pictures/minions.gif" />
+            <li><a href="http://www.php.net/manual/en/migration54.incompatible.php">Other stuff</a></li>
+          </ul>
+        </div>
+
+        <div class="step" data-x="1000" data-y="-2000" data-rotate="-90">
+          <h3>Main additions:</h3>
+          <legend>In addition to a big performance boost</legend>
+          <ul>
+            <li>Arrays short syntax</li>
+            <li>Array dereferencing</li>
+            <li>$this in closures</li>
+            <li>Class member access on instantiation</li>
+            <li>Traits</li>
+            <li>Webserver</li>
+            <li><a href="http://www.php.net/manual/en/migration54.new-features.php">Other things</a></li>
+          </ul>
+        </div>
+
+        <div class="step" data-x="1000" data-y="-3000" data-rotate="-90">
+          <h3>Array short syntax</h3>
+          <pre><code>$array = array('PHP', '5.3');</code></pre>
+          <pre><code>$array = ['PHP', '5.4+'];</code></pre>
+        </div>
+
+        <div class="step" data-x="1000" data-y="-4000" data-rotate="-90">
+          <h3>Array &amp; string dereferencing</h3>
+          <pre><code>echo array('PHP', '5.4+')[0];</code></pre>
+          <pre><code>function helloTF1() {
+  return ['Hello', 'TF1'];
+}
+echo helloTF1()[1];</code></pre>
+        <pre><code>echo 'Hugo'[1];</code></pre>
+        </div>
+
+        <div class="step" data-x="1000" data-y="-5000" data-rotate="-90">
+          <pre><code>class A {
+  private $value = 1;
+  public function getClosure()
+  {
+    return function() {
+      return $this->value;
+    };
+  }
+}
+
+$a = new A;
+$fn = $a->getClosure();
+echo $fn(); // 1</code></pre>
+        </div>
+
+        <div class="step" data-x="1000" data-y="-6000" data-rotate="-90">
+          <blockquote>Class member access on instantiation has been added, e.g. (new Foo)->bar().</blockquote>
+        </div>
+
+        <div class="step" data-x="1000" data-y="-7000" data-rotate="-90" id="Traits">
+          <h3>Traits</h3>
+          <legend>The main addition</legend>
+          <hr>
+          <blockquote>Traits are a mechanism for code reuse in single inheritance languages such as PHP</blockquote>
+        </div>
+
+        <div class="step" data-x="1000" data-y="-8000" data-rotate="-90">
+        <pre><code>trait Color {
+    public function getColor() {
+        return 'blue';
+    }
+}
+class Vehicle {}
+class Car extends Vehicle {
+    use Color;
+}
+$myCar = new Car;
+echo $myCar->getColor(); // blue</code></pre>
+        </div>
+
+        <div class="step" data-x="1000" data-y="-9000" data-rotate="-90">
+          <p>A new keyword, <code>insteadof</code>, has been added to prevent conflicts in traits</p>
+          <p>Without it, if you get a conflict, fatal error.</p>
+        </div>
+
+        <div class="step" data-x="1000" data-y="-10000" data-rotate="-90">
+          <p>
+            <a href="http://blog.ircmaxell.com/2011/07/are-traits-new-eval.html">Be careful</a>
+            <a href="http://www.sitepoint.com/php-traits-good-or-bad/">when using traits</a>
+          </p>
+          <p>Don't use them as a replacement for class inheritance (as seem to do 50% of the explanations on the Internet)</p>
+        </div>
+
+        <div class="step" data-x="1000" data-y="-11000" data-rotate="-90">
+          <h3>Web server</h3>
+          <pre><code>hugo@VF19:~> php -S localhost:8000</code></pre>
+          <pre><code>python -m SimpleHTTPServer 8000</code></pre>
+          <p>Obviously, only for tests</p>
+        </div>
+
+        <div class="step" data-x="1000" data-y="-12000" data-rotate="-90">
+          <h3>One last thing...</h3>
+          <code>htmlspecialchars</code> &amp; <code>htmlentities</code>'s default character set changed from ISO-8859-1 to UTF-8
+        </div>
+      </section>
+
+      <section>
+        <div class="step" data-x="-1000" data-y="0" data-rotate="90" id="5.5">
+          <h2>PHP 5.5</h2>
+          <h3>Release date: 2013-06-20</h3>
+          <h3>Current version: 5.5.5</h3>
+          <legend>End of support: ~2016</legend>
+        </div>
+
+        <div class="step" data-x="-1000" data-y="1000" data-rotate="90">
+          <h3>It got rid of...</h3>
+          <ul>
+            <li>Windows XP/2003 Support</li>
+            <img src="pictures/supermeh.gif" />
+            <li><a href="http://www.php.net/manual/en/migration55.incompatible.php">The rest is pretty much unimportant</a></li>
+          </ul>
+        </div>
+
+        <div class="step" data-x="-1000" data-y="2000" data-rotate="90">
+          <h3>It deprecated</h3>
+          <ul>
+            <li>The original MySQL extension</li>
+            <li>The <code>/e</code> flag in <code>preg_replace</code></li>
+          </ul>
+        </div>
+
+        <div class="step" data-x="-1000" data-y="3000" data-rotate="90">
+          <h3>Main changes:</h3>
+          <ul>
+            <li>empty()</li>
+            <li>Generators</li>
+            <li>try, catch... finally!</li>
+            <li>Other things</li>
+          </ul>
+        </div>
+
+        <div class="step" data-x="-1000" data-y="4000" data-rotate="90">
+          <h3>empty</h3>
+          <legend>My personal favorite : expressions, finally!</legend>
+          <pre><code>$a = '';
+empty($a);
+$b = '        ';
+empty(trim($b));</code></pre>
+        </div>
+
+        <div class="step" data-x="-1000" data-y="5000" data-rotate="90">
+          <h3>Generators (yield)</h3>
+          <pre><code>array range (mixed $start , mixed $end)</code></pre>
+          <pre><code>function xrange($start, $limit) {
+    for ($i = $start; $i &lt;= $limit; $i++) {
+        yield $i;
+    }
+}
+</code></pre>
+        </div>
+
+        <div class="step" data-x="-1000" data-y="6000" data-rotate="90">
+          <pre><code>$data = range(0, 1000000);
+echo memory_get_usage() / 1048576 . " MB";
+// output: 137.92 MB</code></pre>
+          <pre><code>$data = range(0, 1000000);
+echo memory_get_usage() / 1048576 . " MB";
+// output: 0.22 MB</code></pre>
+          <code><pre>foreach ($data as $key => $val) {
+  echo "key: ".$key." value: ".$val."\n";
+}</code></pre>
+        </div>
+
+        <div class="step" data-x="-1000" data-y="7000" data-rotate="90">
+          <h3>try... catch... finally!</h3>
+          <pre><code>try {
+   //do something
+} catch(Exception ex) {
+   //handle an error
+} finally {
+   //clean up after yourself
+}</code></pre>
+        </div>
+
+        <div class="step" data-x="-1000" data-y="8000" data-rotate="90">
+          <h2>Other things</h2>
+          <pre><code>class A {}
+echo A::class;</code></pre>
+          <pre><code>$array = [[1, 2], [3, 4]];
+foreach ($array as list($a, $b)) {
+    echo "First: $a; Second: $b\n";
+}</code></pre>
+        </div>
+
+        <div  class="step" data-x="-1000" data-y="9000" data-rotate="90">
+          <p>Zend Optimizer+ as OPcache extension</p>
+          <p>New functions for <a href="http://www.php.net/manual/en/book.password.php">secure password hashing</a></p>
+        </div>
+
+        <div class="step" data-x="-1000" data-y="10000" data-rotate="90">
+          <h3>What happened to JSON?</h3>
+          <img src="pictures/PHPJSON.jpg" />
+        </div>
+
+        <div class="step" data-x="-1000" data-y="11000" data-rotate="90">
+          <blockquote>The Software shall be used for Good, not Evil.</blockquote>
+          <legend>Douglas Crockford</legend>
+          <blockquote>We want to (be able to) be evil!</blockquote>
+          <legend>PHP developers (not really)</legend>
+        </div>
+
+        <div class="step" data-x="-1000" data-y="12000" data-rotate="90">
+          <p>So the extension ext/JSON got replaced by a free one and there should* not exist any problems</p>
+          <legend>*Except some distribs (Debian, Fedora) removed the old extension but did not automatically add the new one, so users panicked when <code>json_encode</code> and <code>json_decode</code> crashed</legend>
+        </div>
+      </section>
+
+      <section id="future">
+        <div class="step" data-x="0" data-y="-1000" data-rotate="180" id="6">
+          <h2>The future</h2>
+        </div>
+
+        <div class="step"  data-x="-1000" data-y="-1000" data-rotate="180">
+          <h3>Just in case you were wondering...</h3>
+          <p>No more 4 years gap between two versions</p>
+          <p><a href="https://wiki.php.net/rfc/releaseprocess">A yearly cycle has started in 2011</a></p>
+          <p>2 years with bug &amp; security fixes, 1 year with only security fixes</p>
+        </div>
+
+        <div class="step"  data-x="-2000" data-y="-1000" data-rotate="180">
+          <h3>PHP 5.6</h3>
+          <p>Should be out in 2014</p>
+        </div>
+
+        <div class="step"  data-x="-3000" data-y="-1000" data-rotate="180">
+          <h3>Variadic functions</h3>
+          <legend>(accepted)</legend>
+          <pre><code>class MySQL implements DB {
+  public function query($query, ...$params) {
+    $stmt = $this->pdo->prepare($query);
+    $stmt->execute($params);
+    return $stmt;
+  }
+    // ...
+}</code></pre>
+        </div>
+
+        <div class="step"  data-x="-4000" data-y="-1000" data-rotate="180">
+          <h3>Skipping optional parameters for functions</h3>
+          <legend>(under discussion)</legend>
+          <pre><code>function create_query(
+  $where, $order_by, $join_type='',
+    $execute = false, $report_errors = true
+);</code></pre>
+          <pre><code>create_query(
+  "deleted=0", "name", default,
+    default, false);</code></pre>
+        </div>
+
+        <div class="step"  data-x="-5000" data-y="-1000" data-rotate="180">
+          <p>Problems for the future : <a href="http://news.php.net/php.internals/64770">the (lack of) vision</a></p>
+          <p>The PHP internals are a <a href="http://blog.ircmaxell.com/2013/09/rambling-on-internals.html">battlefield</a></p>
+          <p>What major changes should PHP 6 bring?</p>
+          <p><a href="http://edorian.github.io/2013-10-19-Please-stop-pretending-PHP-is-a-good-language/">And existing problems still have to be fixed</a></p>
+        </div>
+      </section>
+
+      <section id="conclusion">
+        <div class="step" data-x="4000" data-y="5000" data-z="-2000">
+          <blockquote>Look at all the amazing stuff we build - The language can’t be that bad!</blockquote>
+          <p>I don't believe it is :)</p>
+        </div>
+
+        <div class="step" data-x="5000" data-y="5000" data-z="-2000">
+          <h2>Thank you :)</h2>
+          <h3>Any questions?</h3>
+          <legend>(I have absolutely no idea if I have time to take some, though)</legend>
+        </div>
+
+        <div class="step" data-x="6000" data-y="5000" data-z="-2000" id="resources">
+          Sources &amp; resources:
+          <ul>
+            <li><a href="http://php.net/">http://php.net/</a></li>
+            <li><a href="http://blog.pascal-martin.fr/">http://blog.pascal-martin.fr/</a></li>
+            <li><a href="https://liorkaplan.wordpress.com/2013/06/01/bye-bye-non-free-php-json-extension/">https://liorkaplan.wordpress.com/2013/06/01/bye-bye-non-free-php-json-extension/</a></li>
+            <li><a href="http://philsturgeon.co.uk/blog/2013/08/fud-cracker-php-55-never-lost-json-support">http://philsturgeon.co.uk/blog/2013/08/fud-cracker-php-55-never-lost-json-support</a></li>
+            <li><a href="http://stackoverflow.com/questions/927214/how-can-i-get-around-the-lack-of-a-finally-block-in-php">http://stackoverflow.com/questions/927214/how-can-i-get-around-the-lack-of-a-finally-block-in-php</a></li>
+            <li><a href="http://www.sitepoint.com/using-traits-in-php-5-4/">http://www.sitepoint.com/using-traits-in-php-5-4/</a></li>
+            <li><a href="http://www.sitepoint.com/php-traits-good-or-bad/">http://www.sitepoint.com/php-traits-good-or-bad/</a></li>
+            <li><a href="http://stackoverflow.com/questions/7892749/traits-in-php-any-real-world-examples-best-practices">http://stackoverflow.com/questions/7892749/traits-in-php-any-real-world-examples-best-practices</a></li>
+            <li><a href="http://www.php.net/manual/en/language.oop5.traits.php">http://www.php.net/manual/en/language.oop5.traits.php</a></li>
+            <li><a href="http://blog.lepine.pro/php/php-5-4-les-traits-horizontal-reuses">http://blog.lepine.pro/php/php-5-4-les-traits-horizontal-reuses</a></li>
+            <li><a href="http://blog.ircmaxell.com/2011/07/are-traits-new-eval.html">http://blog.ircmaxell.com/2011/07/are-traits-new-eval.html</a></li>
+            <li><a href="http://www.sitepoint.com/php-traits-good-or-bad/">http://www.sitepoint.com/php-traits-good-or-bad/</a></li>
+            <li><a href="http://blog.ircmaxell.com/2012/07/what-generators-can-do-for-you.html">http://blog.ircmaxell.com/2012/07/what-generators-can-do-for-you.html</a></li>
+            <li><a href="http://blakegardner.co/2013/06/24/practical-usage-of-php-5-5-generators-yield-keyword/">http://blakegardner.co/2013/06/24/practical-usage-of-php-5-5-generators-yield-keyword/</a></li>
+            <li><a href="http://stackoverflow.com/questions/17483806/what-does-yield-mean-in-php">http://stackoverflow.com/questions/17483806/what-does-yield-mean-in-php</a></li>
+            <li><a href="http://philsturgeon.co.uk/blog/2013/01/php-6-pissing-in-the-wind">http://philsturgeon.co.uk/blog/2013/01/php-6-pissing-in-the-wind</a></li>
+            <li><a href="http://news.php.net/php.internals/64770">http://news.php.net/php.internals/64770</a></li>
+            <li><a href="http://blog.ircmaxell.com/2013/09/rambling-on-internals.html">http://blog.ircmaxell.com/2013/09/rambling-on-internals.html</a></li>
+            <li><a href="http://edorian.github.io/2013-10-19-Please-stop-pretending-PHP-is-a-good-language/">http://edorian.github.io/2013-10-19-Please-stop-pretending-PHP-is-a-good-language/</a></li>
+            <li><a href="https://wiki.php.net/rfc/skipparams">https://wiki.php.net/rfc/skipparams</a></li>
+            <li><a href="http://blog.pascal-martin.fr/public/slides-php-5.5-apero-lyon/">http://blog.pascal-martin.fr/public/slides-php-5.5-apero-lyon/</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="step" id="overview" data-scale="5"></div>
+    </div>
+
+
+  <script src="impress/js/impress.js"></script>
+  <script>impress().init();</script>
+  </body>
+</html>
