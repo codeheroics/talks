@@ -3,4 +3,4 @@
 	url = git://github.com/hakimel/reveal.js.git
 [submodule "PHP5.3to5.5/impress"]
 	path = PHP5.3to5.5/impress
-	url = git@github.com:bartaz/impress.js.git
+	url = git://github.com/bartaz/impress.js.git
