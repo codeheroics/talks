@@ -314,7 +314,7 @@ foreach ($array as list($a, $b)) {
 
         <div class="step" data-x="-1000" data-y="12000" data-rotate="90">
           <p>So the extension ext/JSON got replaced by a free one and there should* not exist any problems</p>
-          <legend>*Except some distribs (Debian, Fedora) removed the old extension but did not automatically add the new one, so users panicked</legend>
+          <legend>*Except some distribs (Debian, Fedora) removed the old extension but did not automatically add the new one, so users panicked when <code>json_encode</code> and <code>json_decode</code> crashed</legend>
         </div>
       </section>
 
@@ -381,28 +381,29 @@ foreach ($array as list($a, $b)) {
         </div>
 
         <div class="step" data-x="6000" data-y="5000" data-z="-2000" id="resources">
-          Resources:
+          Sources &amp; resources:
           <ul>
-            <li>http://php.net/</li>
-            <li>http://blog.pascal-martin.fr/</li>
-            <li>https://liorkaplan.wordpress.com/2013/06/01/bye-bye-non-free-php-json-extension/</li>
-            <li>http://philsturgeon.co.uk/blog/2013/08/fud-cracker-php-55-never-lost-json-support</li>
-            <li>http://stackoverflow.com/questions/927214/how-can-i-get-around-the-lack-of-a-finally-block-in-php</li>
-            <li>http://www.sitepoint.com/using-traits-in-php-5-4/</li>
-            <li>http://www.sitepoint.com/php-traits-good-or-bad/</li>
-            <li>http://stackoverflow.com/questions/7892749/traits-in-php-any-real-world-examples-best-practices</li>
-            <li>http://www.php.net/manual/en/language.oop5.traits.php</li>
-            <li>http://blog.lepine.pro/php/php-5-4-les-traits-horizontal-reuses</li>
-            <li>http://blog.ircmaxell.com/2011/07/are-traits-new-eval.html</li>
-            <li>http://www.sitepoint.com/php-traits-good-or-bad/</li>
-            <li>http://blog.ircmaxell.com/2012/07/what-generators-can-do-for-you.html</li>
-            <li>http://blakegardner.co/2013/06/24/practical-usage-of-php-5-5-generators-yield-keyword/</li>
-            <li>http://stackoverflow.com/questions/17483806/what-does-yield-mean-in-php</li>
-            <li>http://philsturgeon.co.uk/blog/2013/01/php-6-pissing-in-the-wind</li>
-            <li>http://news.php.net/php.internals/64770</li>
-            <li>http://blog.ircmaxell.com/2013/09/rambling-on-internals.html</li>
-            <li>http://edorian.github.io/2013-10-19-Please-stop-pretending-PHP-is-a-good-language/</li>
-            <li>https://wiki.php.net/rfc/skipparams</li>
+            <li><a href="http://php.net/">http://php.net/</a></li>
+            <li><a href="http://blog.pascal-martin.fr/">http://blog.pascal-martin.fr/</a></li>
+            <li><a href="https://liorkaplan.wordpress.com/2013/06/01/bye-bye-non-free-php-json-extension/">https://liorkaplan.wordpress.com/2013/06/01/bye-bye-non-free-php-json-extension/</a></li>
+            <li><a href="http://philsturgeon.co.uk/blog/2013/08/fud-cracker-php-55-never-lost-json-support">http://philsturgeon.co.uk/blog/2013/08/fud-cracker-php-55-never-lost-json-support</a></li>
+            <li><a href="http://stackoverflow.com/questions/927214/how-can-i-get-around-the-lack-of-a-finally-block-in-php">http://stackoverflow.com/questions/927214/how-can-i-get-around-the-lack-of-a-finally-block-in-php</a></li>
+            <li><a href="http://www.sitepoint.com/using-traits-in-php-5-4/">http://www.sitepoint.com/using-traits-in-php-5-4/</a></li>
+            <li><a href="http://www.sitepoint.com/php-traits-good-or-bad/">http://www.sitepoint.com/php-traits-good-or-bad/</a></li>
+            <li><a href="http://stackoverflow.com/questions/7892749/traits-in-php-any-real-world-examples-best-practices">http://stackoverflow.com/questions/7892749/traits-in-php-any-real-world-examples-best-practices</a></li>
+            <li><a href="http://www.php.net/manual/en/language.oop5.traits.php">http://www.php.net/manual/en/language.oop5.traits.php</a></li>
+            <li><a href="http://blog.lepine.pro/php/php-5-4-les-traits-horizontal-reuses">http://blog.lepine.pro/php/php-5-4-les-traits-horizontal-reuses</a></li>
+            <li><a href="http://blog.ircmaxell.com/2011/07/are-traits-new-eval.html">http://blog.ircmaxell.com/2011/07/are-traits-new-eval.html</a></li>
+            <li><a href="http://www.sitepoint.com/php-traits-good-or-bad/">http://www.sitepoint.com/php-traits-good-or-bad/</a></li>
+            <li><a href="http://blog.ircmaxell.com/2012/07/what-generators-can-do-for-you.html">http://blog.ircmaxell.com/2012/07/what-generators-can-do-for-you.html</a></li>
+            <li><a href="http://blakegardner.co/2013/06/24/practical-usage-of-php-5-5-generators-yield-keyword/">http://blakegardner.co/2013/06/24/practical-usage-of-php-5-5-generators-yield-keyword/</a></li>
+            <li><a href="http://stackoverflow.com/questions/17483806/what-does-yield-mean-in-php">http://stackoverflow.com/questions/17483806/what-does-yield-mean-in-php</a></li>
+            <li><a href="http://philsturgeon.co.uk/blog/2013/01/php-6-pissing-in-the-wind">http://philsturgeon.co.uk/blog/2013/01/php-6-pissing-in-the-wind</a></li>
+            <li><a href="http://news.php.net/php.internals/64770">http://news.php.net/php.internals/64770</a></li>
+            <li><a href="http://blog.ircmaxell.com/2013/09/rambling-on-internals.html">http://blog.ircmaxell.com/2013/09/rambling-on-internals.html</a></li>
+            <li><a href="http://edorian.github.io/2013-10-19-Please-stop-pretending-PHP-is-a-good-language/">http://edorian.github.io/2013-10-19-Please-stop-pretending-PHP-is-a-good-language/</a></li>
+            <li><a href="https://wiki.php.net/rfc/skipparams">https://wiki.php.net/rfc/skipparams</a></li>
+            <li><a href="http://blog.pascal-martin.fr/public/slides-php-5.5-apero-lyon/">http://blog.pascal-martin.fr/public/slides-php-5.5-apero-lyon/</a></li>
           </ul>
         </div>
       </section>
