@@ -1,0 +1,19 @@
+{
+  "name": "Nope: A solo project from A to (almost) Z",
+  "version": "1.0.0",
+  "homepage": "https://github.com/hugo-agbonon/presentations",
+  "authors": [
+    "Hugo Agbonon <hugo@agbonon.fr>"
+  ],
+  "license": "CC BY 3.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "reveal.js": "~2.6.2"
+  }
+}
