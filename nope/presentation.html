@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="eng">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      Nope : A solo project from A to (almost) Z
+    </title>
+
+    <meta name="description" content="Nope : A solo project from A to (almost) Z">
+    <meta name="author" content="Hugo Agbonon">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="components/reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="components/reveal.js/css/theme/night.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="components/reveal.js/lib/css/zenburn.css">
+
+    <!--[if lt IE 9]>
+      <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>Nope: A solo project from A to (almost) Z</h1>
+          <p>
+            <small>
+              Presentation By <a href="http://www.agbonon.fr" target="blank">Hugo Agbonon</a> (<a href="http://www.twitter.com/Hugo_Agbonon" target="blank">@Hugo_Agbonon</a>), created using <a href="https://github.com/hakimel/reveal.js" target="blank">reveal.js</a>
+            </small>
+          </p>
+        </section>
+
+        <section>
+          <h2>We're going to talk about...</h2>
+          <ol>
+            <li>What Nope is</li>
+            <li>Demo</li>
+            <li>How Nope works</li>
+            <li>What's next</li>
+          </ol>
+        </section>
+
+        <section>
+
+          <section>
+            <h2>What Nope is</h2>
+            <p><img src="assets/nope1.gif"></p>
+            <small>An incredible source for gifs</small>
+          </section>
+
+          <section>
+            <h3>Have you ever heard about a small website named Facebook?</h3>
+            <img class="fragment" src="assets/duh.jpg">
+            <p class="fragment">They have a "poke" feature.</p>
+          </section>
+
+          <section>
+            <h3>Now I have two friends</h3>
+            <p>Let's call them Emilie and Maxime</p>
+            <p>They use it <strong>ALL. THE. TIME.</strong></p>
+            <p>They even ended up poking each other in real life</p>
+            <p>They want to "win" against the other</p>
+            <p>But there is no notion of points or victories in Facebook's poke</p>
+            <p><img src="assets/facebook-poke.png"></p>
+          </section>
+
+          <section>
+            <h2>Introducing Nope!</h2>
+            <small>Which I kinda built for these friends</small>
+          </section>
+
+          <section>
+            <h3>A social game where you must be the one having the last word</h3>
+            <ul>
+              <li>You and your opponent have counters recording how long you were the one "noping" the other</li>
+              <li>If they push their button and notify you, their counter starts ticking.</li>
+              <li>The one ahead of the other is winning.</li>
+            </ul>
+            <div class="fragment">
+              <p><img src="assets/nope3.gif"></p>
+              <p><small>This is my best illustration of the idea</small></p>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Demo time!</h2>
+            <small>'Cause it sounds nice but I didn't get it</small>
+          </section>
+
+          <section>
+            <iframe src="https://www.nope.wtf" width="800" height="700"></iframe>
+            <small>May the demo gods have pity on me</small>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>How Nope works</h2>
+            <small>Let's get technical</small>
+          </section>
+
+          <section>
+            <h3>
+              Client side
+            </h3>
+            <ul>
+              <li>HTML5</li>
+              <li>Ember.js</li>
+              <li>Websockets</li>
+              <li>Cordova</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>HTML5 &amp; CSS3</h3>
+            <p>
+              Responsive design FTW
+            </p>
+          </section>
+
+          <section>
+            <h3>Ember.js</h3>
+            <p>
+              Framework for the client-side logic
+            </p>
+            <p>Comes with Handlebars and jQuery</p>
+          </section>
+
+          <section>
+            <h3>Websockets</h3>
+            <p>
+              For real-time. More on that later.
+            </p>
+          </section>
+
+          <section>
+            <h3>Cordova</h3>
+            <p>For transforming a webapp into a phone app</p>
+          </section>
+
+          <section>
+            <h3>
+              Server side
+            </h3>
+            <ul>
+              <li>node.js</li>
+              <li>Express</li>
+              <li>Primus</li>
+              <li>Redis</li>
+              <li>Couchbase</li>
+              <li>nginx</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>node.js &amp; Express</h3>
+            <ul>
+              <li>Server-side JavaScript!</li>
+              <li>Framework for basic architecture</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Primus</h3>
+            <p>
+              Godlike entity in the Transformers universe
+            </p>
+            <p><img src="assets/primus.jpg" height="500"></p>
+
+            <p class="fragment">
+              It is also a pretty awesome websockets library, for real-time events
+            </p>
+          </section>
+
+          <section>
+            <h3>Redis</h3>
+            <p>Allows multiple instances of node.js to communicate, which makes the websockets scalable, thanks to the pub/sub mecanism</p>
+            <p><img src="assets/node_redis.png" alt="Credits: http://blog.dakatsuka.jp/uploads/2011/06/19/node_redis.png"></p>
+          </section>
+
+          <section>
+            <h3>Couchbase</h3>
+            <p>Key-value fast &amp; scalable NoSQL database</p>
+            <h4>My DB architecture:</h4>
+            <p>A <strong>User</strong> document contains <strong>all</strong> the data an user needs at any given time</p>
+          </section>
+
+          <section>
+            <h3>nginx</h3>
+            <p>HTTP(S) server</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h3>Things learned</h3>
+            <ul>
+              <li><strong>Ember.js</strong> - Do not use if you don't plan to stick to the "Ember way"</li>
+              <li><strong>Primus</strong> - recommended for websockets</li>
+              <li><strong>Couchbase</strong> - recommended for websockets</li>
+              <li><strong>Redis</strong> - All kinds of amazing</li>
+              <li><strong>Cordova</strong> - You <strong>MUST</strong> try it</li>
+              <li><strong>nginx</strong></li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Things I still haven't understood</h3>
+            <p>Generic tld (.wtf) === Security warning with HTTPS?</p>
+          </section>
+        </section>
+
+        <section>
+          <h3>Some stats</h3>
+          <p>4 months 1/2 from first commit to 1.0 release</p>
+          <p>~50 000 nopes from ~25 users</p>
+          <p>Emilie &amp; Maxime sent to each other 15 000 nopes</p>
+          <p>Operating cost: ~5-6€ / month</p>
+          <p>Money earned: 0€</p>
+          <p>Fun: a lot</p>
+        </section>
+
+        <section>
+          <h3>Collective demo time + Questions</h3>
+          <iframe src="https://www.nope.wtf" width="800" height="700"></iframe>
+          <p><a href="https://www.nope.wtf">https://www.nope.wtf</a></p>
+          <p contenteditable></p>
+        </section>
+
+        <section>
+          <h2>Thank you</h2>
+          <p><img src="assets/nope2.gif" height="300"></p>
+          <p><img src="assets/nope4.png" height="300"></p>
+        </section>
+      </div>
+    </div>
+
+    <script src="components/reveal.js/lib/js/head.min.js"></script>
+    <script src="components/reveal.js/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: "night", // available themes are in /css/theme
+        transition: 'zoom', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'components/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'components/reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'components/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'components/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'components/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+  </body>
+</html>
