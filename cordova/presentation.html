@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="eng">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      Apache Cordova: Mobile &lt;3 Web
+    </title>
+
+    <meta name="description" content="Expanding your mind with JavaScript">
+    <meta name="author" content="Hugo Agbonon">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="components/reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="components/reveal.js/css/theme/night.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="components/reveal.js/lib/css/zenburn.css">
+
+    <!--[if lt IE 9]>
+      <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>Apache Cordova</h1>
+          <p>
+            <small>
+              Presentation By <a href="http://www.agbonon.fr" target="blank">Hugo Agbonon</a> (<a href="http://www.twitter.com/Hugo_Agbonon" target="blank">@Hugo_Agbonon</a>), created using <a href="https://github.com/hakimel/reveal.js" target="blank">reveal.js</a>
+            </small>
+          </p>
+        </section>
+
+        <section>
+          <h3>What we're going to talk about...</h3>
+          <ul>
+            <li>The state of mobile development</li>
+            <li>Cordova to the rescue</li>
+            <li>Live-coding!</li>
+            <li>Applause, tomatoes and/or questions</li>
+          </ul>
+        </section>
+
+        <section>
+          <section>
+            <h2>The state of mobile development</h2>
+          </section>
+
+          <section>
+            <p>So, I want to write a mobile app...</p>
+            <ul class="fragment">
+              <li>Java on Android</li>
+              <li>Objective-C, Swift on iOS</li>
+              <li>C# on Windows Phone</li>
+            </ul>
+            <h4 class="fragment">ARGH</h4>
+          </section>
+
+          <section>
+            <h3>Dear mobile developers...</h3>
+            <p>I'd really like to write my app only once!</p>
+            <div class="fragment">
+              <p>In my ideal world, you eventually go out of jobs</p>
+              <p><small>(But I &lt;3 you)</small></p>
+              <p><small>And don't worry, it's not like it's gonna happen anytime soon</small></p>
+            </div>
+          </section>
+
+          <section>
+            <h3>Now</h3>
+            <p>All mobile devices have webviews.</p>
+            <p>Webviews =  I can create applications using web technologies! HTML5, CSS3, JavaScript!</p>
+            <p class="fragment">But we cannot access any of the devices API (vibration, battery, contacts, camera...)</p>
+          </section>
+
+          <section>
+            <p>How can I write my app for all devices?</p>
+            <p><small>(You know, besides hiring 3 teams of developers)</small></p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Cordova to the rescue</h2>
+          </section>
+
+          <section>
+            <p>
+              <strong>Apache Cordova</strong> is a framework which enables developers to write apps with web technlogies
+              <em>and</em> access platform APIs with those web technologies
+            </p>
+          </section>
+
+          <section>
+            <h3>A quick bit of history</h3>
+            <ul>
+              <li>Born as PhoneGap in 2009, by Nitobi Software</li>
+              <li>Nitobi was bought by Adobe in 2011, and PhoneGap's code given to Apache</li>
+              <li>Today exists <strong>Apache Cordova</strong> and <strong>Adobe PhoneGap</strong></li>
+            </ul>
+            <p><small>Talk about confusing...</small></p>
+          </section>
+
+          <section>
+            <p>Cordova enables cross-platform development for</p>
+            <ul>
+              <li>Android</li>
+              <li>iOS</li>
+              <li>Windows Phone</li>
+              <li>BlackBerry</li>
+              <li>Firefox OS</li>
+              <li>Ubuntu</li>
+              <li>Tizen</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <h2>Live Coding!</h2>
+          <p><small>May the demo gods have pity on me</small></p>
+        </section>
+
+        <section>
+          <h3>Problems</h3>
+          <ul>
+            <li>Webviews suck. They're slow.</li>
+            <li>Cordova isn't magical.</li>
+            <li>It doesn't "feel" native!</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Thank you</h2>
+          <h3>Any questions?</h3>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="components/reveal.js/lib/js/head.min.js"></script>
+    <script src="components/reveal.js/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: "night", // available themes are in /css/theme
+        transition: 'zoom', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'components/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'components/reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'components/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'components/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'components/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+  </body>
+</html>
