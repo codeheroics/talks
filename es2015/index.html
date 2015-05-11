@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>ECMAScript (in) 2015</title>
+    <link rel="stylesheet" type="text/css" href="build/build.css">
+  </head>
+  <body>
+    <article>
+      <section>
+        <h1>ECMAScript <span style="font-size: 50%">(in)</span> 2015</h1>
+        <h2>The future is now!</h2>
+        <footer>A presentation by <a href="http://www.twitter.com/Hugo_Agbonon">@Hugo_Agbonon</a></footer>
+        <p><img src="images/Hugo_Agbonon.jpeg" style="border-radius: 50%; width: 3em;"></p>
+      </section>
+      <section>
+        <div>Let's talk about...</div>
+        <ul>
+          <li>What <b>ECMAScript 2015</b> is</li>
+          <li>Using it right now</li>
+          <li>Way too much of technical stuff</li>
+        </ul>
+      </section>
+      <section>
+        <h2>ECMAScript 2015</h2>
+        <p>was called <b>ES6</b></p>
+        <p>was called <b>ES.next</b></p>
+        <p>was refered as <b>Harmony</b></p>
+        <p class="big fragment">is the spec for <b>JavaScript</b>'s next version (btw)</p>
+      </section>
+      <section>
+        <h3>The new name has a purpose</h3>
+        <p>It shows that the spec will now be released on an <b>annual</b> cadence</p>
+        <p>The next version, previously ES7, will be called ES2016, etc</p>
+      </section>
+      <section>
+        <p>So the new name conveys better the intentions</p>
+        <p class="small"><a href="http://webreflection.blogspot.fr/2015/01/javascript-and-living-ecmascript.html">Even if most people liked ES 6, and lots of resources call it that</a></p>
+        <p class="smaller">And even if it feels like a Windows version name</p>
+      </section>
+      <section>
+        <p>It also feels like a signal:</p>
+        <p class="big"><b>It's time to upgrade</b></p>
+        <p class="small">Or do you want to be writing "legacy code"?</p>
+      </section>
+      <section>
+        <h3>The future is now!</h3>
+        <p>Final release in June!</p>
+        <p class="smaller">(And it is 99% done, feature frozen, in release candidate)</p><img src="images/happening.gif">
+      </section>
+      <section>
+        <h2>By the way, where are we on ES2015 support?</h2>
+      </section>
+      <section>
+        <p>Estimate of % of features implemented:</p>
+        <ul>
+          <li>IE11: <b>15%</b> (Edge: <b>69%</b>)</li>
+          <li>Firefox: <b>64%</b> (Aurora: <b>68%</b>)</li>
+          <li>Chrome 42: <b>45%</b></li>
+          <li>Node.js: <b>23%</b> (IO.js: <b>43%</b>)</li>
+          <li><a href="http://kangax.github.io/compat-table/es6/">etc</a></li>
+        </ul>
+      </section>
+      <section>
+        <p>Of course, the supported parts do not necessarily overlap</p>
+        <table>
+          <tr>
+            <th>Feature</th>
+            <th>Firefox</th>
+            <th>Chrome</th>
+          </tr>
+          <tr>
+            <td>Destructuring</td>
+            <td>✔</td>
+            <td>✖</td>
+          </tr>
+          <trs>
+            <td>Object.observe (ES2016)</td>
+            <td>✖</td>
+            <td>✔</td>
+          </trs>
+        </table>
+      </section>
+      <section>
+        <h3>Introducing <a href="http://en.wikipedia.org/wiki/Source-to-source_compiler">transpilers</a></h3>
+      </section>
+      <section>
+        <ul>
+          <li><b><a href="https://babeljs.io/">Babel</a></b></li>
+          <li><b><a href="https://github.com/google/traceur-compiler">Traceur</a></b></li>
+        </ul>
+        <p>Can compile ES2015 code to ES5</p>
+        <p>Don't support everything, but most features</p>
+        <p>"Just another build step"</p>
+      </section>
+      <section>
+        <h3>Babel's website is awesome.</h3>
+        <p>Use it and start working 30s later</p>
+        <p><a href="http://babeljs.io/users/">(And yes, lots of companies use it in production)</a></p>
+      </section>
+      <section>
+        <h2>Now to ES2015's content</h2>
+        <p>I've been babbling for a while about the "how", not the "why"</p>
+      </section>
+      <section>
+        <ol>
+          <li>new Syntax</li>
+          <li>new Functionalities</li>
+        </ol>
+      </section>
+      <section>
+        <h3>Block scoping: let</h3>
+        <pre><code class="language-javascript">for (var i = 0; i < 5; i++) {
+  var tmp = Math.pow(i, i);
+}
+console.log(i, tmp); // 5, 256
+</code></pre>
+      </section>
+      <section>
+        <h3>Block scoping: let</h3>
+        <pre><code class="language-javascript">for (let i = 0; i < 5; i++) {
+  let tmp = Math.pow(i, i);
+}
+console.log(i, tmp); // ReferenceError: i, tmp are not defined
+</code></pre>
+      </section>
+      <section>
+        <h3>Block scoping: const</h3>
+        <pre><code class="language-javascript">const AWESOME_MEETUP = 'ParisJS';
+AWESOME_MEETUP = 'Another place'; // TypeError
+</code></pre>
+        <pre><code class="language-javascript">if (true) {
+  const AWESOME_MEETUP = 'ParisJS';
+}
+console.log(AWESOME_MEETUP); // ReferenceError
+</code></pre>
+      </section>
+      <section>
+        <h3>Methods</h3>
+        <pre><code class="language-javascript">var obj = {
+  sayHello: function(name) {
+    console.log(name);
+  }
+}
+</code></pre>
+        <pre><code class="language-javascript">var obj = {
+  sayHello(name) {
+    console.log(name);
+  }
+}</code></pre>
+      </section>
+      <section>
+        <h3>Arrow functions</h3>
+        <pre><code class="language-javascript">// ES5
+['Vivement', 'Les', 'Pizzas'].map(function(s) {
+  return s.toUpperCase();
+});
+</code></pre>
+        <pre><code class="language-javascript">// ES2015
+['Vivement', 'Les', 'Pizzas'].map(s => s.toUpperCase());
+</code></pre>
+      </section>
+      <section>
+        <h3>Arrow functions</h3>
+        <p>Look at <b>this</b>!</p>
+        <p><i>Suppose we're in an object with this.logger defined</i></p>
+        <pre><code class="language-javascript">var self = this; // ES3: Saving this
+article.save(function(err) {
+  if (err) this.logger.error(err);
+}.bind(this)); // ES5: bind
+</code></pre>
+        <pre><code class="language-javascript">// ES2015: Lexical this
+article.save((err) => {
+  if (err) this.logger.error(err);
+});
+</code></pre>
+      </section>
+      <section>
+        <h3>Spread Operator</h3>
+        <pre><code class="language-javascript">Math.max([1,2,3,4]); // NaN
+Math.max(...[1,2,3,4]); // 4
+</code></pre>
+      </section>
+      <section>
+        <h3>Rest parameters</h3>
+        <p>Get arguments, get rid of "<code>arguments</code>"</p>
+        <pre><code class="language-javascript">function randomCallback(err, ...params) {
+  console.log(params); // [1, 2, 3, 4, 5]
+}
+randomCallback(null, 1, 2, 3, 4, 5)
+</code></pre>
+      </section>
+      <section>
+        <h3>Default parameters</h3>
+        <pre><code class="language-javascript">function sayHello(name = 'ParisJS') {
+  console.log('Hello ' + name);
+}
+sayHello(); // Hello ParisJS
+sayHello('Pizzas'); // Hello Pizzas
+</code></pre>
+      </section>
+      <section>
+        <h3>Short-hands to build objects...</h3>
+        <pre><code class="language-javascript">var text = 'Hello ParisJS';
+var images = [];
+var object = {};
+</code></pre>
+        <pre><code class="language-javascript">// ES5
+var resources = { text: text, images: images, object : object };</code></pre>
+        <pre><code class="language-javascript">// ES6
+let resources = { text, images, object };
+</code></pre>
+      </section>
+      <section>
+        <h3>and destructuring</h3>
+        <pre><code class="language-javascript">let { max, min } = Math;
+max(1,2,3,4);
+min(1,2,3,4);
+</code></pre>
+      </section>
+      <section>
+        <h3>Template strings</h3>
+        <pre><code class="language-javascript">var name = 'ParisJS';
+var text = `I'm speaking at ${name}
+Oh god the text
+is going on multiple lines
+It's incredible!`</code></pre><img src="images/HELL_YEAH.jpeg" width="180">
+      </section>
+      <section>
+        <h3>Modules - named exports & imports</h3>
+        <pre><code class="language-javascript">// meetup.js
+export const BEST_MEETUP = 'ParisJS';
+export function speak(s) { console.log(s)};</code></pre>
+        <pre><code class="language-javascript">// main.js
+import { BEST_MEETUP, speak } from './meetup.js';
+speak(BEST_MEETUP); // 'ParisJS';
+</code></pre>
+      </section>
+      <section>
+        <h3>Modules - default exports & imports</h3>
+        <pre><code class="language-javascript">// meetup.js
+export const BEST_MEETUP = 'ParisJS';
+export default function speak(s) { console.log(s); };</code></pre>
+        <pre><code class="language-javascript">// main.js
+import * as meetup from './meetup.js';
+meetup.speak(meetup.BEST_MEETUP); // 'ParisJS';</code></pre>
+        <pre><code class="language-javascript">// main2.js
+import speak from './meetup.js';
+speak('Hello'); // 'Hello';
+</code></pre>
+      </section>
+      <section>
+        <h3>Classes</h3>
+        <p><a href="https://medium.com/javascript-scene/common-misconceptions-about-inheritance-in-javascript-d5d9bab29b0a">A feature everyone wanted! (not)</a>
+          <pre><code class="language-javascript">class Plane extends Vehicle {
+   constructor(name, capacity) {
+    super(name); 
+    this.capacity = capacity;
+   }
+   announce() {
+     console.log(super.announce());
+     console.log('I can carry ' + this.capacity + ' people');
+   }
+   static explainTheUse () {
+     console.log('I CAN FLY! YOU CAN FLY! WE CAN FLY!')
+   }
+}
+</code></pre>
+        </p>
+      </section>
+      <section>
+        <h3>for...of</h3>
+        <p>Our new loop overlord. Iterates on arrays and anything that implements iterators</p>
+        <pre><code class="language-javascript">for (let value of [1,2,3]) {
+  console.log(value); // 1, 2, 3
+}
+for (let [index, value] of ['a', 'b', 'c'].entries()) {
+  console.log(index, value); // 0 a, 1 b, 2c
+}
+</code></pre>
+      </section>
+      <section>
+        <h3>Sets</h3>
+        <p>Basically arrays with a unicity enforcement</p>
+        <p>Iterate with <code>for...of</code>!
+          <pre><code class="language-javascript">var a = new Set([1,2,3,4,3,2,1,0,1])
+console.log(a); // Set [ 1, 2, 3, 4, 0 ]
+for (let i of a) {
+  console.log(i); // 1 2 3 4 0
+}
+</code></pre>
+        </p>
+      </section>
+      <section>
+        <h3>Maps</h3>
+        <p>Adios, <code>if (object.hasOwnProperty)</code></p>
+        <p>Can take any kind of value (string, object, number...) as key</p>
+        <p>Easy to get its length</p>
+        <p>Iterate with <code>for...of</code>!
+          <pre><code class="language-javascript">var meetups = new Map();
+
+meetups.set('ParisJS', { location: 'SenseSpace', edition: 47 });
+meetups.set(NaN, { location: 'SecretSpace' });
+
+for (let [name, infos] of meetups.entries()) {
+  console.log(`Meetup: ${name}, location: ${infos.location}`)
+}
+meetups.get('ParisJS');
+meetups.get(NaN);
+</code></pre>
+        </p>
+      </section>
+      <section>
+        <h3>Generators</h3>
+        <pre><code class="language-javascript">function* simpleGenerator(){
+  yield "first";
+  yield "second";
+  for (var i = 0; i < 2; i++) {
+    yield i;
+  }
+}
+
+var g = simpleGenerator();
+console.log(g.next()); // { value: "first", done: false }
+console.log(g.next()); // { value: "second", done: false }
+console.log(g.next()); // { value: 0, done: false }
+console.log(g.next()); // { value: 1, done: false }
+console.log(g.next()); // { value: undefined, done: true }
+</code></pre>
+      </section>
+      <section>
+        <h3>Promises</h3>
+        <pre><code class="language-javascript">function foobar() {
+  return new Promise(function(resolve, reject) {
+    return Math.random() > 0.5 ?
+      resolve(':)') : reject(new Error(':('));
+  });
+}
+
+foobar()
+.then((foo) => console.log('Success! ' + foo))
+.catch((bar) => console.log('Failure! ' + bar));
+// No .finally for now :(
+</code></pre>
+      </section>
+      <section>
+        <h3>new utility functions</h3>
+        <p class="small">People are getting sick of <code>indexOf</code></p>
+        <pre><code class="language-javascript">'ParisJS'.includes('JS');</code></pre>
+        <pre><code class="language-javascript">['ParisJS', 'Pizzas', 'Soon'].find(el => el === 'Soon');</code></pre>
+        <pre><code class="language-javascript">['ParisJS', 'Pizzas', 'Soon'].findIndex(el => el === 'Soon');</code></pre>
+      </section>
+      <section>
+        <h3>new utility functions</h3>
+        <pre><code class="language-javascript">Object.assign({}, { name: 'ParisJS' }, { edition: 47 } );
+</code></pre>
+        <pre><code class="language-javascript">Array.from(document.querySelectorAll('*'));
+</code></pre>
+        <p>...</p>
+      </section>
+      <section>
+        <h2>And more...</h2>
+        <ul>
+          <li>Better Unicode support</li>
+          <li>Symbols (new primitive type to get unique values)</li>
+          <li>Proxies</li>
+          <li><a href="https://github.com/lukehoban/es6features">And more</a></li>
+        </ul>
+      </section>
+      <section>
+        <h2>ES2016 (ES7)</h2>
+        <ul>
+          <li>async functions</li>
+          <li>Object.observe</li>
+          <li>Typed objects</li>
+          <li><a href="https://github.com/hemanth/es7-features">Waaaaay more</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>async functions</h3>
+        <p>The Holy Grail: better than promises</p>
+        <pre><code class="language-javascript">async function doAsyncOp () {
+  val = await asynchronousOperation();
+  val = await asynchronousOperation(val);
+  val = await asynchronousOperation(val);
+  return await asynchronousOperation(val);
+}
+</code></pre>
+      </section>
+      <section>
+        <h2>ES2017 (ES8)</h2>
+        <ul>
+          <li>Macros?</li>
+        </ul>
+      </section>
+      <section>
+        <h2>So</h2>
+      </section>
+      <section>
+        <h2>ECMAScript 2015 has <b>WAY TOO MUCH</b> new stuff</h2>
+        <p>All the more reason to start using things right now if you don't already</p>
+        <p class="small">Either you wait <b>a lot</b>, or you'll end up using a transpiler anyway.</p>
+      </section>
+      <section>
+        <p>Plus, if you don't, I'll come back with this same presentation renamed</p>
+        <p class="big">"<b>Why aren't you yet using ECMAScript 2015?</b>"</p>
+        <p>And I'll keep talking <i>while the pizzas get cold</i>.</p>
+      </section>
+      <section>
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="http://www.2ality.com">2ality.com</a></li>
+          <li><a href="https://kangax.github.io/compat-table/es6/">ES6 compatibility table</a></li>
+          <li><a href="https://github.com/lukehoban/es6features">es6features</a></li>
+          <li><a href="https://github.com/hemanth/es7-features">es7features</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla">Mozilla Developer Network</a></li>
+          <li><a href="https://babeljs.io/">Babel</a></li>
+          <li>&amp; The Internet</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Thank you</h3>
+        <p>Any questions?</p>
+        <p>This: <a href="http://hugo-agbonon.github.io/presentations/es2015/">http://hugo-agbonon.github.io/presentations/es2015</a></p>
+      </section>
+    </article>
+    <script src="build/build.js"></script>
+  </body>
+</html>
