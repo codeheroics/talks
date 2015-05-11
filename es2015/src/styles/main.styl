@@ -1,0 +1,66 @@
+// New to Stylus? Check out http://learnboost.github.io/stylus
+// Use modern CSS thanks to Autoprefixer: https://github.com/ai/autoprefixer
+
+// Import CSS from "node_modules" and "bower_components"
+// thanks to Stylus' "import css" and "paths" options
+
+@import 'prism/themes/prism-okaidia.css'
+// Check out "bower_components/prism/themes/" for available themes
+
+h1, h2
+  letter-spacing: .2em
+
+h3
+  font-weight: bold
+  font-size: 150%
+
+h1
+  padding: 0.3em
+  line-height: normal
+
+footer
+  padding: 0.1em
+
+a
+  border: none
+  font-weight: bold
+  color: #FFBD87
+  padding: 0
+
+td, th
+  padding: 0.5em
+
+.bespoke-slide, .bespoke-active
+  transition: none;
+
+.bespoke-slide *:nth-child(n)
+  opacity: 0;
+
+.bespoke-active *:nth-child(n)
+  opacity: 1;
+
+for num in (0..20)
+  .bespoke-active *:nth-child({num + 1})
+    transition: opacity 0.5s linear num * 0.3s
+    transition-delay: num * 0.3s
+
+.big
+  font-size: 125%
+
+.small
+  font-size: 75%
+.smaller
+  font-size: 50%
+
+.smallest
+  font-size: 25%
+
+pre
+  background-color: rgba(255, 255, 255, 0.2) !important
+
+pre, code
+  line-height: 1 !important
+  overflow: visible !important
+
+pre *:nth-child(n), code *:nth-child(n)
+  opacity: 1 !important
