@@ -8,4 +8,4 @@ http://hugo-agbonon.github.io/presentations/
 * 10/2014 - A philosophy of personal projects
 * 10/2014 - Nope: A solo project from A to (almost) Z
 * 11/2014 - Apache Cordova
-* 05-2015 - ECMAScript 2015
+* 05/2015 - ECMAScript 2015
