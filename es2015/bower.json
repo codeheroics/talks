@@ -1,0 +1,7 @@
+{
+  "name": "presentation-ecmascript-in-2015",
+  "version": "0.0.0",
+  "dependencies": {
+    "prism": "gh-pages"
+  }
+}
