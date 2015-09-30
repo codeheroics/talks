@@ -9,3 +9,4 @@ http://hugo-agbonon.github.io/presentations/
 * 10/2014 - Nope: A solo project from A to (almost) Z
 * 11/2014 - Apache Cordova
 * 05/2015 - ECMAScript 2015
+* 09/2015 - Finally, node v4 (lightning)
