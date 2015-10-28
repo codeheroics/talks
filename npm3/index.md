@@ -6,8 +6,8 @@ style: style.css
 --
 
 # npm 3
-## node package manager 3
-#### new parisjs meetup
+## new parisjs meetup
+#### no pikachus mutilated
 
 --
 
@@ -15,6 +15,7 @@ style: style.css
 #### naming patterns matters
 
 * 2009 : Node.js
+* 2010 : npm
 
 --
 
@@ -30,6 +31,7 @@ Can you imagine Node without npm?
 #### nepotic pasta muncher
 
 * 2009 : Node.js
+* 2010-01 : npm 0.0.1
 * 2011 : npm 1
 * 2014 : npm 2
 
@@ -95,9 +97,7 @@ I'd love to say "hell yeah"
 
 <img src="images/wait.gif" />
 
-But wait just a bit if you depend heavily on shrinkwraps.
-
-(Front-end? Go for it!)
+But wait just a bit if you depend on shrinkwraps (and if you don't, you should consider it).
 
 --
 
@@ -126,7 +126,7 @@ If you don't, use [nvm](https://github.com/creationix/nvm)
     Me: <a href="http://twitter.com/codeheroics">@codeheroics</a>
   </h3>
   <h3>
-    This: <a href="http://bit.ly/node-parisjs">bit.ly/npm3-parisjs</a>
+    This: <a href="http://bit.ly/npm3-parisjs">bit.ly/npm3-parisjs</a>
   </h3>
   <h3>Finding new meanings to npm's acronym: [github.com/npm/npm-expansions](https://github.com/npm/npm-expansions)</h3>
   <h3>More info on [Github](https://github.com/npm/npm/releases) & the [npm blog](https://github.com/npm/npm).</h3>
