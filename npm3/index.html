@@ -1,0 +1,1078 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>npm 3</title>
+  <style type="text/css">
+    body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #222;
+  background-color: #f7f7f7;
+  font-size: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 0; right: 0;
+}
+
+.slide-content {
+  width: 800px;
+  height: 600px;
+  overflow: hidden;
+  margin: 80px auto 0 auto;
+  padding: 30px;
+
+  font-weight: 200;
+  font-size: 200%;
+  line-height: 1.375;
+}
+
+.controls {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.arrow {
+  width: 0; height: 0;
+  border: 30px solid #333;
+  float: left;
+  margin-right: 30px;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.prev {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+
+  border-left-width: 0;
+  border-right-width: 50px;
+}
+
+.next {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+
+  border-left-width: 50px;
+  border-right-width: 0;
+}
+
+.prev:hover {
+  border-right-color: #888;
+  cursor: pointer;
+}
+
+.next:hover {
+  border-left-color: #888;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 300%;
+  line-height: 1.2;
+  text-align: center;
+  margin: 170px 0 0;
+}
+
+h2 {
+  font-size: 100%;
+  line-height: 1.2;
+  margin: 5px 0;
+  text-align: center;
+  font-weight: 200;
+}
+
+h3 {
+  font-size: 140%;
+  line-height: 1.2;
+  border-bottom: 1px solid #aaa;
+  margin: 0;
+  padding-bottom: 15px;
+}
+
+ul {
+  padding: 20px 0 0 60px;
+  font-weight: 200;
+  line-height: 1.375;
+}
+
+.author h1 {
+  font-size: 170%;
+  font-weight: 200;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.author h3 {
+  font-weight: 100;
+  text-align: center;
+  font-size: 95%;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: #44a4dd;
+}
+
+a:hover {
+  color: #66b5ff;
+}
+
+pre {
+  font-size: 60%;
+  line-height: 1.3;
+}
+
+.progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 3px;
+  background-color: #b4b4b4;
+
+  -webkit-transition: width 0.05s ease-out;
+  -moz-transition: width 0.05s ease-out;
+  -o-transition: width 0.05s ease-out;
+  transition: width 0.05s ease-out;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 850px) {
+
+  body {
+    font-size: 70%;
+  }
+
+  .slide-content {
+    width: auto;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  h1 {
+    margin-top: 120px;
+  }
+
+  .prev, .prev:hover {
+    border-right-color: rgba(135, 135, 135, 0.5);
+  }
+
+  .next, .next:hover {
+    border-left-color: rgba(135, 135, 135, 0.5);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 50%;
+    overflow: hidden;
+  }
+
+  .slide-content {
+    padding: 10px;
+    margin-top: 10px;
+    height: 340px;
+  }
+
+  h1 {
+    margin-top: 50px;
+  }
+
+  ul {
+    padding-left: 25px;
+  }
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+  }
+
+  @page {
+    size: letter;
+  }
+
+  .hidden {
+    display: inline;
+  }
+
+  html {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  body {
+    margin: 0 auto !important;
+    border: 0;
+    padding: 0;
+    float: none !important;
+    overflow: visible;
+    background: none !important;
+    font-size: 52%;
+  }
+
+  .progress, .controls {
+    display: none;
+  }
+
+  .slide {
+    position: static;
+  }
+
+  .slide-content {
+    border: 1px solid #222;
+    margin-top: 0;
+    margin-bottom: 40px;
+    height: 3.5in;
+    overflow: visible;
+  }
+
+  .slide:nth-child(even) {
+    /* 2 slides per page */
+    page-break-before: always;
+  }
+}
+
+/*
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+*/
+
+code, pre {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  overflow: auto;
+  padding: 6px 10px;
+}
+
+code {
+  padding: 0 5px;
+}
+
+pre>code {
+  margin: 0; padding: 0;
+  border: none;
+  background: transparent;
+}
+
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .javadoc {
+  color: #998;
+  font-style: italic
+}
+
+pre .keyword,
+pre .css .rule .keyword,
+pre .winutils,
+pre .javascript .title,
+pre .nginx .title,
+pre .subst,
+pre .request,
+pre .status {
+  color: #333;
+  font-weight: bold
+}
+
+pre .number,
+pre .hexcolor,
+pre .ruby .constant {
+  color: #099;
+}
+
+pre .string,
+pre .tag .value,
+pre .phpdoc,
+pre .tex .formula {
+  color: #d14
+}
+
+pre .title,
+pre .id {
+  color: #900;
+  font-weight: bold
+}
+
+pre .javascript .title,
+pre .lisp .title,
+pre .clojure .title,
+pre .subst {
+  font-weight: normal
+}
+
+pre .class .title,
+pre .haskell .type,
+pre .vhdl .literal,
+pre .tex .command {
+  color: #458;
+  font-weight: bold
+}
+
+pre .tag,
+pre .tag .title,
+pre .rules .property,
+pre .django .tag .keyword {
+  color: #000080;
+  font-weight: normal
+}
+
+pre .attribute,
+pre .variable,
+pre .lisp .body {
+  color: #008080
+}
+
+pre .regexp {
+  color: #009926
+}
+
+pre .class {
+  color: #458;
+  font-weight: bold
+}
+
+pre .symbol,
+pre .ruby .symbol .string,
+pre .lisp .keyword,
+pre .tex .special,
+pre .prompt {
+  color: #990073
+}
+
+pre .built_in,
+pre .lisp .title,
+pre .clojure .built_in {
+  color: #0086b3
+}
+
+pre .preprocessor,
+pre .pi,
+pre .doctype,
+pre .shebang,
+pre .cdata {
+  color: #999;
+  font-weight: bold
+}
+
+pre .deletion {
+  background: #fdd
+}
+
+pre .addition {
+  background: #dfd
+}
+
+pre .diff .change {
+  background: #0086b3
+}
+
+pre .chunk {
+  color: #aaa
+}
+
+body {
+font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+color: #222;
+background-color: #f7f7f7;
+font-size: 100%;
+}
+
+
+img {
+display: block;
+margin: auto;
+width: auto !important;
+max-width: 100%;
+}
+
+.slide {
+position: absolute;
+top: 0; bottom: 0;
+left: 0; right: 0;
+}
+
+.slide-content {
+width: 1024px;
+height: 768px;
+overflow: visible;
+margin: 80px auto 0 auto;
+padding: 30px;
+
+font-weight: 200;
+font-size: 200%;
+line-height: 1.375;
+}
+
+.controls {
+position: absolute;
+bottom: 20px;
+left: 20px;
+}
+
+.arrow {
+width: 0; height: 0;
+border: 30px solid #333;
+float: left;
+margin-right: 30px;
+
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+.prev {
+border-top-color: transparent;
+border-bottom-color: transparent;
+border-left-color: transparent;
+
+border-left-width: 0;
+border-right-width: 50px;
+}
+
+.next {
+border-top-color: transparent;
+border-bottom-color: transparent;
+border-right-color: transparent;
+
+border-left-width: 50px;
+border-right-width: 0;
+}
+
+.prev:hover {
+border-right-color: #888;
+cursor: pointer;
+}
+
+.next:hover {
+border-left-color: #888;
+cursor: pointer;
+}
+
+h1 {
+font-size: 300%;
+line-height: 1.2;
+text-align: center;
+margin: 170px 0 0;
+}
+
+h2 {
+font-size: 100%;
+line-height: 1.2;
+margin: 5px 0;
+text-align: center;
+font-weight: 200;
+}
+
+h3 {
+font-size: 140%;
+line-height: 1.2;
+border-bottom: 1px solid #aaa;
+margin: 0;
+padding-bottom: 15px;
+}
+
+ul {
+padding: 20px 0 0 60px;
+font-weight: 200;
+line-height: 1.375;
+}
+
+.author h1 {
+font-size: 170%;
+font-weight: 200;
+text-align: center;
+margin-bottom: 30px;
+}
+
+.author h3 {
+font-weight: 100;
+text-align: center;
+font-size: 95%;
+border: none;
+}
+
+a {
+text-decoration: none;
+color: #44a4dd;
+}
+
+a:hover {
+color: #66b5ff;
+}
+
+pre {
+font-size: 60%;
+line-height: 1.3;
+}
+
+.progress {
+position: fixed;
+top: 0; left: 0; right: 0;
+height: 3px;
+}
+
+.progress-bar {
+width: 0%;
+height: 3px;
+background-color: #b4b4b4;
+
+-webkit-transition: width 0.05s ease-out;
+-moz-transition: width 0.05s ease-out;
+-o-transition: width 0.05s ease-out;
+transition: width 0.05s ease-out;
+}
+
+.hidden {
+display: none;
+}
+
+@media (max-width: 850px) {
+
+body {
+font-size: 70%;
+}
+
+.slide-content {
+width: auto;
+}
+
+h1 {
+margin-top: 120px;
+}
+
+.prev, .prev:hover {
+border-right-color: rgba(135, 135, 135, 0.5);
+}
+
+.next, .next:hover {
+border-left-color: rgba(135, 135, 135, 0.5);
+}
+}
+
+@media (max-width: 480px) {
+body {
+font-size: 50%;
+overflow: hidden;
+}
+
+.slide-content {
+padding: 10px;
+margin-top: 10px;
+height: 340px;
+}
+
+h1 {
+margin-top: 50px;
+}
+
+ul {
+padding-left: 25px;
+}
+}
+
+@media print {
+* {
+-webkit-print-color-adjust: exact;
+}
+
+@page {
+size: letter;
+}
+
+.hidden {
+display: inline;
+}
+
+html {
+width: 100%;
+height: 100%;
+overflow: visible;
+}
+
+body {
+margin: 0 auto !important;
+border: 0;
+padding: 0;
+float: none !important;
+overflow: visible;
+background: none !important;
+font-size: 52%;
+}
+
+.progress, .controls {
+display: none;
+}
+
+.slide {
+position: static;
+}
+
+.slide-content {
+border: 1px solid #222;
+margin-top: 0;
+margin-bottom: 40px;
+height: 3.5in;
+overflow: visible;
+}
+
+.slide:nth-child(even) {
+/* 2 slides per page */
+page-break-before: always;
+}
+}
+
+/*
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+*/
+
+code, pre {
+border: 1px solid #ddd;
+border-radius: 3px;
+overflow: auto;
+padding: 6px 10px;
+}
+
+code {
+padding: 0 5px;
+}
+
+pre>code {
+margin: 0; padding: 0;
+border: none;
+background: transparent;
+}
+
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .javadoc {
+color: #998;
+font-style: italic
+}
+
+pre .keyword,
+pre .css .rule .keyword,
+pre .winutils,
+pre .javascript .title,
+pre .nginx .title,
+pre .subst,
+pre .request,
+pre .status {
+color: #333;
+font-weight: bold
+}
+
+pre .number,
+pre .hexcolor,
+pre .ruby .constant {
+color: #099;
+}
+
+pre .string,
+pre .tag .value,
+pre .phpdoc,
+pre .tex .formula {
+color: #d14
+}
+
+pre .title,
+pre .id {
+color: #900;
+font-weight: bold
+}
+
+pre .javascript .title,
+pre .lisp .title,
+pre .clojure .title,
+pre .subst {
+font-weight: normal
+}
+
+pre .class .title,
+pre .haskell .type,
+pre .vhdl .literal,
+pre .tex .command {
+color: #458;
+font-weight: bold
+}
+
+pre .tag,
+pre .tag .title,
+pre .rules .property,
+pre .django .tag .keyword {
+color: #000080;
+font-weight: normal
+}
+
+pre .attribute,
+pre .variable,
+pre .lisp .body {
+color: #008080
+}
+
+pre .regexp {
+color: #009926
+}
+
+pre .class {
+color: #458;
+font-weight: bold
+}
+
+pre .symbol,
+pre .ruby .symbol .string,
+pre .lisp .keyword,
+pre .tex .special,
+pre .prompt {
+color: #990073
+}
+
+pre .built_in,
+pre .lisp .title,
+pre .clojure .built_in {
+color: #0086b3
+}
+
+pre .preprocessor,
+pre .pi,
+pre .doctype,
+pre .shebang,
+pre .cdata {
+color: #999;
+font-weight: bold
+}
+
+pre .deletion {
+background: #fdd
+}
+
+pre .addition {
+background: #dfd
+}
+
+pre .diff .change {
+background: #0086b3
+}
+
+pre .chunk {
+color: #aaa
+}
+
+h4 {
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font-weight: 100;
+}
+
+  </style>
+</head>
+<body>
+    <div class="progress">
+    <div class="progress-bar"></div>
+  </div>
+
+  <div class="slide" id="slide-1">
+    <section class="slide-content"><h1 id="npm-3">npm 3</h1>
+<h2 id="node-package-manager-3">node package manager 3</h2>
+<h4 id="new-parisjs-meetup">new parisjs meetup</h4>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-2">
+    <section class="slide-content"><h3 id="timeline">Timeline</h3>
+<h4 id="naming-patterns-matters">naming patterns matters</h4>
+<ul>
+<li>2009 : Node.js</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-3">
+    <section class="slide-content"><h4 id="nonviolent-pigeon-manifestation">nonviolent pigeon manifestation</h4>
+<p>Can you imagine Node without npm?</p>
+<p><img src="images/inconceivable.gif" style="height: 300px" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-4">
+    <section class="slide-content"><h3 id="timeline">Timeline</h3>
+<h4 id="nepotic-pasta-muncher">nepotic pasta muncher</h4>
+<ul>
+<li>2009 : Node.js</li>
+<li>2011 : npm 1</li>
+<li>2014 : npm 2</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-5">
+    <section class="slide-content"><h3 id="npm-2">npm 2</h3>
+<h4 id="nobody-pays-michael">nobody pays michael</h4>
+<blockquote>&quot;In npm@2.0.0, Ben changed npm run-script to allow you to pass arguments into scripts. That’s a breaking change. It’s as simple as that.&quot;</blockquote></section>
+  </div>
+  <div class="slide hidden" id="slide-6">
+    <section class="slide-content"><h3 id="npm-2">npm 2</h3>
+<h4 id="now-playing-mario">now playing mario</h4>
+<p><img src="images/nobodycares.gif" style="height: 300px" /></p>
+<p><span style="font-size: 0.7em;">(but that&#39;s good, and what semver is for)</span></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-7">
+    <section class="slide-content"><h3 id="yet-npm-is-far-from-perfect">Yet, npm is far from perfect</h3>
+<h4 id="naruto-punches-macgyver">naruto punches macgyver</h4>
+<ul>
+<li><code>npm shrinkwrap</code> is unreliable</li>
+<li>Dependencies tree is bad for front-end use</li>
+<li>Dependencies tree is bad for sanity (also, Windows)</li>
+<li>Sometimes fails for no reason</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-8">
+    <section class="slide-content"><h3 id="npm-3">npm 3</h3>
+<h4 id="never-program-mummies">never program mummies</h4>
+<p>Why would it be more important than npm 2?</p>
+<blockquote>&quot;npm@3 constitutes a nearly complete rewrite of npm&#39;s installer to be easier to maintain, and to bring a bunch of valuable new features and design improvements to you all.&quot;</blockquote></section>
+  </div>
+  <div class="slide hidden" id="slide-9">
+    <section class="slide-content"><h3 id="npm-3">npm 3</h3>
+<h4 id="noop-pop-map-">noop(); pop(); map();</h4>
+<ul>
+<li>2015-06-25: <a href="v3.0.0">v3.0.0</a> with <strong>THIS IS BETA SOFTWARE</strong> written in bold italic capital letters</li>
+<li>2015-09-17: <a href="https://github.com/npm/npm/releases/tag/v3.3.4">v3.3.4</a>, out of beta</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-10">
+    <section class="slide-content"><h3 id="npm-3">npm 3</h3>
+<h4 id="nerdy-programmers-mingling">nerdy programmers mingling</h4>
+<ul>
+<li>New install process (getting rid of race conditions)</li>
+<li>Fancy new install bar
+<img src="images/bar.jpg" /></li>
+<li>Dedupes dependencies by default</li>
+<li>npm uninstall cleans module and its dependencies</li>
+<li>Fixes all shrinkwrap issues... <a href="https://github.com/npm/npm/issues/9703">Soon. Probably. Hopefully.</a></li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-11">
+    <section class="slide-content"><h3 id="should-i-upgrade-">Should I upgrade?</h3>
+<h4 id="no-problem-man">no problem man</h4>
+<p>I&#39;d love to say &quot;hell yeah&quot;</p>
+<p><img src="images/wait.gif" /></p>
+<p>But wait just a bit if you depend heavily on shrinkwraps.</p>
+<p>(Front-end? Go for it!)</p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-12">
+    <section class="slide-content"><h3 id="the-future">The future</h3>
+<h4 id="newbie-pwns-master">newbie pwns master</h4>
+<p>There&#39;s a <a href="https://github.com/npm/npm/wiki/Roadmap">roadmap</a> on npm&#39;s Github with short-term and long-term goals/ideas.</p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-13">
+    <section class="slide-content"><h3 id="install-it">Install it</h3>
+<h4 id="nanotechnology-promises-much">nanotechnology promises much</h4>
+<p><code>npm install -g npm # yes, really.</code></p>
+<p>If you don&#39;t, use <a href="https://github.com/creationix/nvm">nvm</a></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-14">
+    <section class="slide-content"><h3 id="thank-you-parisjs-50-meetups-o-">Thank you ParisJS! 50 meetups ! \o/</h3>
+<h4 id="now-pizzas-munching-">now pizzas munching?</h4>
+<div class="author" style="margin-top: 30px;">
+  <img src="images/thanks.gif" height=300 style="margin-bottom: 10px;">
+  <h3>
+    Me: <a href="http://twitter.com/codeheroics">@codeheroics</a>
+  </h3>
+  <h3>
+    This: <a href="http://bit.ly/node-parisjs">bit.ly/npm3-parisjs</a>
+  </h3>
+  <h3>Finding new meanings to npm&#39;s acronym: <a href="https://github.com/npm/npm-expansions">github.com/npm/npm-expansions</a></h3>
+  <h3>More info on <a href="https://github.com/npm/npm/releases">Github</a> &amp; the <a href="https://github.com/npm/npm">npm blog</a>.</h3>
+</div></section>
+  </div>
+
+  <div class="controls">
+    <div class="arrow prev"></div>
+    <div class="arrow next"></div>
+  </div>
+
+
+  <script type="text/javascript">
+    /**
+ * Returns the current page number of the presentation.
+ */
+function currentPosition() {
+  return parseInt(document.querySelector('.slide:not(.hidden)').id.slice(6));
+}
+
+
+/**
+ * Navigates forward n pages
+ * If n is negative, we will navigate in reverse
+ */
+function navigate(n) {
+  var position = currentPosition();
+  var numSlides = document.getElementsByClassName('slide').length;
+
+  /* Positions are 1-indexed, so we need to add and subtract 1 */
+  var nextPosition = (position - 1 + n) % numSlides + 1;
+
+  /* Normalize nextPosition in-case of a negative modulo result */
+  nextPosition = (nextPosition - 1 + numSlides) % numSlides + 1;
+
+  document.getElementById('slide-' + position).classList.add('hidden');
+  document.getElementById('slide-' + nextPosition).classList.remove('hidden');
+
+  updateProgress();
+  updateURL();
+  updateTabIndex();
+}
+
+
+/**
+ * Updates the current URL to include a hashtag of the current page number.
+ */
+function updateURL() {
+  window.history.replaceState({} , null, '#' + currentPosition());
+}
+
+
+/**
+ * Sets the progress indicator.
+ */
+function updateProgress() {
+  var progressBar = document.querySelector('.progress-bar');
+
+  if (progressBar !== null) {
+    var numSlides = document.getElementsByClassName('slide').length;
+    var position = currentPosition() - 1;
+    var percent = (numSlides === 1) ? 100 : 100 * position / (numSlides - 1);
+    progressBar.style.width = percent.toString() + '%';
+  }
+}
+
+
+/**
+ * Removes tabindex property from all links on the current slide, sets
+ * tabindex = -1 for all links on other slides. Prevents slides from appearing
+ * out of control.
+ */
+function updateTabIndex() {
+  var allLinks = document.querySelectorAll('.slide a');
+  var position = currentPosition();
+  var currentPageLinks = document.getElementById('slide-' + position).querySelectorAll('a');
+  var i;
+
+  for (i = 0; i < allLinks.length; i++) {
+    allLinks[i].setAttribute('tabindex', -1);
+  }
+
+  for (i = 0; i < currentPageLinks.length; i++) {
+    currentPageLinks[i].removeAttribute('tabindex');
+  }
+}
+
+/**
+ * Determines whether or not we are currently in full screen mode
+ */
+function isFullScreen() {
+  return document.fullscreenElement ||
+         document.mozFullScreenElement ||
+         document.webkitFullscreenElement ||
+         document.msFullscreenElement;
+}
+
+/**
+ * Toggle fullScreen mode on document element.
+ * Works on chrome (>= 15), firefox (>= 9), ie (>= 11), opera(>= 12.1), safari (>= 5).
+ */
+function toggleFullScreen() {
+  /* Convenient renames */
+  var docElem = document.documentElement;
+  var doc = document;
+
+  docElem.requestFullscreen =
+      docElem.requestFullscreen ||
+      docElem.msRequestFullscreen ||
+      docElem.mozRequestFullScreen ||
+      docElem.webkitRequestFullscreen.bind(docElem, Element.ALLOW_KEYBOARD_INPUT);
+
+  doc.exitFullscreen =
+      doc.exitFullscreen ||
+      doc.msExitFullscreen ||
+      doc.mozCancelFullScreen ||
+      doc.webkitExitFullscreen;
+
+  isFullScreen() ? doc.exitFullscreen() : docElem.requestFullscreen();
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Update the tabindex to prevent weird slide transitioning
+  updateTabIndex();
+
+  // If the location hash specifies a page number, go to it.
+  var page = window.location.hash.slice(1);
+  if (page) {
+    navigate(parseInt(page) - 1);
+  }
+
+  document.onkeydown = function (e) {
+    var kc = e.keyCode;
+
+    // left, down, H, J, backspace, PgUp - BACK
+    // up, right, K, L, space, PgDn - FORWARD
+    // enter - FULLSCREEN
+    if (kc === 37 || kc === 40 || kc === 8 || kc === 72 || kc === 74 || kc === 33) {
+      navigate(-1);
+    } else if (kc === 38 || kc === 39 || kc === 32 || kc === 75 || kc === 76 || kc === 34) {
+      navigate(1);
+    } else if (kc === 13) {
+      toggleFullScreen();
+    }
+  };
+
+  if (document.querySelector('.next') && document.querySelector('.prev')) {
+    document.querySelector('.next').onclick = function (e) {
+      e.preventDefault();
+      navigate(1);
+    };
+
+    document.querySelector('.prev').onclick = function (e) {
+      e.preventDefault();
+      navigate(-1);
+    };
+  }
+});
+
+
+  </script>
+</body>
+</html>
