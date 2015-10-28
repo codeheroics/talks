@@ -10,3 +10,4 @@ http://hugo-agbonon.github.io/presentations/
 * 11/2014 - Apache Cordova
 * 05/2015 - ECMAScript 2015
 * 09/2015 - Finally, node v4 (lightning)
+* 10/2015 - npm 3 (lightning)
