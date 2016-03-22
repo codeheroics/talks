@@ -11,3 +11,4 @@ http://codeheroics.github.io/talks/
 * 05/2015 - ECMAScript 2015
 * 09/2015 - Finally, node v4 (lightning)
 * 10/2015 - npm 3 (lightning)
+* 02/2016 - ECMAScript (in) 2016, and beyond
