@@ -20,11 +20,13 @@ By Hugo Agbonon ([@codeheroics](http://twitter.com/codeheroics))
 
 ## node v6
 * Supports 93% of ECMAScript 2015
+![yay](images/yay.gif)
 
 --
 
 ## node v6
 * Does not support ES Modules.
+![booh](images/disappointed.gif)
 
 --
 
@@ -61,19 +63,20 @@ Seems simple to move from one to the other, right?
 ## Parsing differences mean...
 
 **The same code won't work the same way whether it's in an ES Module or a CommonJS Module**
-* (As an app developer, you probably won't have to worry about that though, the differences are subtle)
+* (As an app developer, you probably won't have to worry too much about that though, the differences are subtle)
 * However...
+
 --
 
 ## Since they work differently
 
-* We need to know for sure if we're running a CommonJS module or a ES module.
+* Node needs to know for sure if we're running a module is a CommonJS or ES Module.
 
 --
 
 ## 4 constraints for that
 
-* **Maximum interoperability**: Existing requires *must* continue to work with no changes
+* **Maximum interoperability**: Existing requires must continue to work with no changes
 * **Poly-Packages**: Library authors shoud be able to create packages that work with new and old versions of Node
 * **Agnostic Usage**: Apps don't need to know if the module they're using is an ES or a CommonJS Module
 * **A Future Without Vestiges**: CommonJS should fade.
@@ -83,6 +86,11 @@ Seems simple to move from one to the other, right?
 ## How can it be done?
 
 * Checking for `import` and `export` is not enough: You can have ES modules without those keywords
+
+```js
+console.log(`Module loaded ${Date()}`)
+```
+is a valid ES Module
 
 --
 
@@ -104,6 +112,32 @@ Seems simple to move from one to the other, right?
 
 [The current official node proposal is for .mjs](https://github.com/nodejs/node-eps/blob/master/002-es6-modules.md) (though it is a draft and the implementation hasn't started)
 
+![DRAMA](images/drama.gif)
+
+--
+
+## A strong counter-proposal was suggested
+
+* "[In Defense of .js](https://github.com/dherman/defense-of-dot-js/blob/master/proposal.md"
+* Suggests using package.json
+* The current consensus remained
+
+--
+
+## mjs is simple
+
+* .mjs tells explicitely that a module is es6
+* .mjs files will have the priority when `require`d or `import`ed
+* .mjs files require no configurations or declarations
+
+--
+
+## mjs is simple
+
+* .mjs files only hurt feelings (and files you'd want to directly include in a browser) because we <3 .js
+
+![FEELS](images/feels.gif)
+
 --
 
 ## But I'm already using modules with Babel without it!
@@ -115,14 +149,16 @@ Seems simple to move from one to the other, right?
 
 ## When?
 
-![Alt text](images/tweet.png)
+![when](images/tweet.png)
 
-implementation hasn't started.
-Maybe around node v10?
+* [Implementation hasn't started](https://github.com/nodejs/node-eps/blob/master/002-es6-modules.md)
+* Maybe around node v10?
 
 --
 
 ## Get ready for node.mjs
+
+![mjs](images/mjs.jpg)
 
 --
 
@@ -132,7 +168,6 @@ Maybe around node v10?
   <img src="images/thanks.gif" height=300 style="margin-bottom: 10px;">
   <h3>
     Me: <a href="http://twitter.com/codeheroics">@codeheroics</a>
-    <small>(React/Node Freelance! Available soon! Talk to me!)</small>
   </h3>
   <h3>
     This: <a href="http://bit.ly/parismjs">bit.ly/parismjs</a> (links at the last slide)

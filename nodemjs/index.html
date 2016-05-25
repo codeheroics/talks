@@ -366,12 +366,15 @@ strong {
   font-weight: bold;
 }
 
-
 img {
 display: block;
 margin: auto;
-width: auto !important;
+width: 750px;
 max-width: 100%;
+}
+
+img[alt=DRAMA] {
+  width: auto !important
 }
 
 .slide {
@@ -787,14 +790,16 @@ h4 {
   <div class="slide hidden" id="slide-3">
     <section class="slide-content"><h2 id="node-v6">node v6</h2>
 <ul>
-<li>Supports 93% of ECMAScript 2015</li>
+<li>Supports 93% of ECMAScript 2015
+<img src="images/yay.gif" alt="yay"></li>
 </ul>
 </section>
   </div>
   <div class="slide hidden" id="slide-4">
     <section class="slide-content"><h2 id="node-v6">node v6</h2>
 <ul>
-<li>Does not support ES Modules.</li>
+<li>Does not support ES Modules.
+<img src="images/disappointed.gif" alt="booh"></li>
 </ul>
 </section>
   </div>
@@ -827,7 +832,7 @@ h4 {
     <section class="slide-content"><h2 id="parsing-differences-mean-">Parsing differences mean...</h2>
 <p><strong>The same code won&#39;t work the same way whether it&#39;s in an ES Module or a CommonJS Module</strong></p>
 <ul>
-<li>(As an app developer, you probably won&#39;t have to worry about that though, the differences are subtle)</li>
+<li>(As an app developer, you probably won&#39;t have to worry too much about that though, the differences are subtle)</li>
 <li>However...</li>
 </ul>
 </section>
@@ -835,14 +840,14 @@ h4 {
   <div class="slide hidden" id="slide-8">
     <section class="slide-content"><h2 id="since-they-work-differently">Since they work differently</h2>
 <ul>
-<li>We need to know for sure if we&#39;re running a CommonJS module or a ES module.</li>
+<li>Node needs to know for sure if we&#39;re running a module is a CommonJS or ES Module.</li>
 </ul>
 </section>
   </div>
   <div class="slide hidden" id="slide-9">
     <section class="slide-content"><h2 id="4-constraints-for-that">4 constraints for that</h2>
 <ul>
-<li><strong>Maximum interoperability</strong>: Existing requires <em>must</em> continue to work with no changes</li>
+<li><strong>Maximum interoperability</strong>: Existing requires must continue to work with no changes</li>
 <li><strong>Poly-Packages</strong>: Library authors shoud be able to create packages that work with new and old versions of Node</li>
 <li><strong>Agnostic Usage</strong>: Apps don&#39;t need to know if the module they&#39;re using is an ES or a CommonJS Module</li>
 <li><strong>A Future Without Vestiges</strong>: CommonJS should fade.</li>
@@ -854,6 +859,8 @@ h4 {
 <ul>
 <li>Checking for <code>import</code> and <code>export</code> is not enough: You can have ES modules without those keywords</li>
 </ul>
+<pre><code class="lang-js"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Module loaded <span class="hljs-subst">${Date()}</span>`</span>)</code></pre>
+<p>is a valid ES Module</p>
 </section>
   </div>
   <div class="slide hidden" id="slide-11">
@@ -875,9 +882,36 @@ h4 {
 <li><del>Information in package.json</del></li>
 </ol>
 <p><a href="https://github.com/nodejs/node-eps/blob/master/002-es6-modules.md">The current official node proposal is for .mjs</a> (though it is a draft and the implementation hasn&#39;t started)</p>
+<p><img src="images/drama.gif" alt="DRAMA"></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-13">
+    <section class="slide-content"><h2 id="a-strong-counter-proposal-was-suggested">A strong counter-proposal was suggested</h2>
+<ul>
+<li>&quot;[In Defense of .js](<a href="https://github.com/dherman/defense-of-dot-js/blob/master/proposal.md">https://github.com/dherman/defense-of-dot-js/blob/master/proposal.md</a>&quot;</li>
+<li>Suggests using package.json</li>
+<li>The current consensus remained</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-14">
+    <section class="slide-content"><h2 id="mjs-is-simple">mjs is simple</h2>
+<ul>
+<li>.mjs tells explicitely that a module is es6</li>
+<li>.mjs files will have the priority when <code>require</code>d or <code>import</code>ed</li>
+<li>.mjs files require no configurations or declarations</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-15">
+    <section class="slide-content"><h2 id="mjs-is-simple">mjs is simple</h2>
+<ul>
+<li>.mjs files only hurt feelings (and files you&#39;d want to directly include in a browser) because we &lt;3 .js</li>
+</ul>
+<p><img src="images/feels.gif" alt="FEELS"></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-16">
     <section class="slide-content"><h2 id="but-i-m-already-using-modules-with-babel-without-it-">But I&#39;m already using modules with Babel without it!</h2>
 <ul>
 <li>You&#39;re <em>writing</em> ES Modules</li>
@@ -885,31 +919,33 @@ h4 {
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-14">
+  <div class="slide hidden" id="slide-17">
     <section class="slide-content"><h2 id="when-">When?</h2>
-<p><img src="images/tweet.png" alt="Alt text"></p>
-<p>implementation hasn&#39;t started.
-Maybe around node v10?</p>
+<p><img src="images/tweet.png" alt="when"></p>
+<ul>
+<li><a href="https://github.com/nodejs/node-eps/blob/master/002-es6-modules.md">Implementation hasn&#39;t started</a></li>
+<li>Maybe around node v10?</li>
+</ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-15">
+  <div class="slide hidden" id="slide-18">
     <section class="slide-content"><h2 id="get-ready-for-node-mjs">Get ready for node.mjs</h2>
+<p><img src="images/mjs.jpg" alt="mjs"></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-16">
+  <div class="slide hidden" id="slide-19">
     <section class="slide-content"><h3 id="thank-you-">Thank you!</h3>
 <div class="author" style="margin-top: 30px;">
   <img src="images/thanks.gif" height=300 style="margin-bottom: 10px;">
   <h3>
     Me: <a href="http://twitter.com/codeheroics">@codeheroics</a>
-    <small>(React/Node Freelance! Available soon! Talk to me!)</small>
   </h3>
   <h3>
     This: <a href="http://bit.ly/parismjs">bit.ly/parismjs</a> (links at the last slide)
   </h3>
 </div></section>
   </div>
-  <div class="slide hidden" id="slide-17">
+  <div class="slide hidden" id="slide-20">
     <section class="slide-content"><h3 id="cool-links">Cool links</h3>
 <ul>
 <li><a href="https://github.com/nodejs/node-eps/blob/master/002-es6-modules.md">Node.js Enhancement Proposal</a></li>
