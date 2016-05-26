@@ -116,6 +116,8 @@ is a valid ES Module
 
 ![DRAMA](images/drama.gif)
 
+--
+
 ## mjs is simple
 
 * .mjs tells explicitly that a is an es module
