@@ -54,7 +54,7 @@ Seems simple to move from one to the other, right?
 
 * ES modules cannot be conditionally required
 * ES modules need to be (import/export)ed from the top level of the module
-* ES modules export [immutable bindings](http://www.2ality.com/2015/07/es6-module-exports.html)
+* ES modules are [static](http://www.2ality.com/2014/09/es6-modules-final.html), export [immutable bindings](http://www.2ality.com/2015/07/es6-module-exports.html)
 * **ES modules are always in strict mode and are parsed differently**
 
 --
@@ -69,9 +69,7 @@ Seems simple to move from one to the other, right?
 
 ## Since they work differently
 
-* Node needs to find out, without error, if a module is a CommonJS or ES Module.
-
-![play detective](images/detective.gif)
+* Node needs to find out, **without error**, if a module is a CommonJS or ES Module.
 
 --
 
@@ -87,7 +85,7 @@ is a valid ES Module
 
 --
 
-## 4 Options
+## 4 Options to handle this in node.
 
 1. `'use module'`
 1. myModuleName.mjs
@@ -101,7 +99,15 @@ is a valid ES Module
 * **Maximum interoperability**: Existing requires must continue to work with no changes
 * **Poly-Packages**: Library authors shoud be able to create packages that work with new and old versions of Node
 * **Agnostic Usage**: Apps don't need to know if the module they're using is an ES or a CommonJS Module
-* **A Future Without Vestiges**: CommonJS should fade.
+* **A Future Without Vestiges**: The standard should be favored in the future.
+
+--
+
+## Rejected solutions
+
+1. ~~`'use module'`~~ - Boilerplate code which can never go away
+1. ~~Automatic Detection~~ - Impossible
+1. ~~Information in package.json~~ - Tedious to do and maintain. Disables some workflows. Requires a package.json.
 
 --
 
@@ -112,7 +118,7 @@ is a valid ES Module
 1. ~~Automatic Detection~~
 1. ~~Information in package.json~~
 
-[The current official node proposal is for .mjs](https://github.com/nodejs/node-eps/blob/master/002-es6-modules.md) (though it is a draft and the implementation hasn't started), even though there are strong opinions "[In Defense of .js](https://github.com/dherman/defense-of-dot-js/blob/master/proposal.md)"
+[The current official node proposal is for .mjs](https://github.com/nodejs/node-eps/blob/master/002-es6-modules.md)
 
 ![DRAMA](images/drama.gif)
 
@@ -135,27 +141,67 @@ is a valid ES Module
 
 --
 
-## But I'm already using ES modules with Babel!
-
-* You're *writing* ES Modules
-* You're *running* transpiled CommonJS Modules
-
---
-
-## When?
+## Is this happening? When?
 
 ![when](images/tweet.png)
 
-* [Implementation hasn't started](https://github.com/nodejs/node-eps/blob/master/002-es6-modules.md)
+* The proposal is still a draft, which means its [implementation hasn't started](https://github.com/nodejs/node-eps/blob/master/002-es6-modules.md)
 * Maybe around node v10?
 
 --
 
-## Get ready for (node).mjs
+## Get ready for (node).mjs...
 
 ![mjs](images/mjs.jpg)
+--
 
-(& Follow [@bradleymeck](https://twitter.com/bradleymeck) a [@nodemjs](https://twitter.com/nodemjs) for more infos on this!)
+## Or... maybe not.
+
+What if automatic detection was possible after all?
+
+![intrigued?](images/intrigued.gif)
+
+--
+
+## Hot from last week
+
+![new solution: change JS](images/lastSolution.png)
+
+--
+
+## Proposed solution: Change JS syntax to avoid ambiguities
+
+A module **requires** an `import` or an `export`
+
+All modules are parsed. If it doesn't contain any of these statements, it is not an ES Module.
+
+--
+
+## So for the previous example
+
+```js
+console.log(`Module loaded ${Date()}`)
+```
+Would be recognized as a CommonJS module, while
+
+```js
+console.log(`Module loaded ${Date()}`)
+export {}
+```
+would be an ES module.
+
+.js files, without ambiguities, without package.json setup (except a single field for libraries)
+
+--
+
+## Will this pass?
+
+# ¯\\\_(ツ)\_/¯
+
+* The main issue: Changing JS spec for a **node.js** issue.
+* JS in browsers don't need this as `<script type="module">` resolves problems.
+* Node could also impose mandatory `export` and `import` statements in modules...
+* But it would officially be only implementing a subset of ECMAScript.
 
 --
 
@@ -167,7 +213,10 @@ is a valid ES Module
     Me: <a href="http://twitter.com/codeheroics">@codeheroics</a>
   </h3>
   <h3>
-    This: <a href="http://bit.ly/parismjs">bit.ly/parismjs</a> (links at the last slide)
+    This: <a href="http://bit.ly/parismjs">bit.ly/parismjs</a> (resource links at the last slide)
+  </h3>
+  <h3>
+    (& Follow [@bradleymeck](https://twitter.com/bradleymeck), [@jdalton](https://twitter.com/jdalton) &   [@nodemjs](https://twitter.com/nodemjs) for more infos on this!)
   </h3>
 </div>
 
