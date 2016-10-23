@@ -13,3 +13,4 @@ http://codeheroics.github.io/talks/
 * 10/2015 - npm 3 (lightning)
 * 02/2016 - ECMAScript (in) 2016, and beyond
 * 05/2016 - myNodeModule.mjs?
+* 10/2016 - React: From the Web to Native and back
